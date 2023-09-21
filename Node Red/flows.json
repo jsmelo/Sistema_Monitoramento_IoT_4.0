@@ -1,0 +1,3960 @@
+[
+    {
+        "id": "a9bfa6605d0b661f",
+        "type": "tab",
+        "label": "Login",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "359d5fe091bf41d6",
+        "type": "tab",
+        "label": "Coleta de dados",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e2df45bdd6ea5367",
+        "type": "tab",
+        "label": "Empresa",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0a41ebc60d5d5486",
+        "type": "tab",
+        "label": "Usuário",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "89b6e06b06b14b9e",
+        "type": "tab",
+        "label": "Sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d155e6adce3a118",
+        "type": "tab",
+        "label": "Perfil",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "38a28c34a174e449",
+        "type": "tab",
+        "label": "Setor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "46e062890416d22b",
+        "type": "tab",
+        "label": "Login",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2ea067a327b4a27b",
+        "type": "mqtt-broker",
+        "name": "Temperatura",
+        "broker": "https://test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9b8f3638da732ac0",
+        "type": "mqtt-broker",
+        "name": "Temperatura",
+        "broker": "https://test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9ce057f406a0c2ea",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "cddefb4d811531a8",
+        "type": "ui_group",
+        "name": "Temperatura Atual",
+        "tab": "9ce057f406a0c2ea",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9abdcf92f7caab17",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e6de909701d645c6",
+        "type": "MySQLdatabase",
+        "name": "monitorTemp",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "monitorTemp",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "71e989d373b81ff5",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "b82da486.9fc8d8",
+        "type": "ui_group",
+        "name": "Signin",
+        "tab": "d65502b1.ee517",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c35e46a8.b04ce8",
+        "type": "ui_group",
+        "name": "SensorData",
+        "tab": "d65502b1.ee517",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4de9506d.e7364",
+        "type": "ui_group",
+        "name": "History",
+        "tab": "d65502b1.ee517",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d65502b1.ee517",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "cea7ed5b0a0f01e6",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "mytutorial",
+        "tz": "+08:00",
+        "charset": "UTF8"
+    },
+    {
+        "id": "b767a04386d7657b",
+        "type": "JsonWebToken_config",
+        "name": "Secret",
+        "secret": "Secrete"
+    },
+    {
+        "id": "b3bb4c4ede4b7a93",
+        "type": "http in",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "url": "/login",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 400,
+        "wires": [
+            [
+                "3a7268b8d831830f"
+            ]
+        ]
+    },
+    {
+        "id": "3a7268b8d831830f",
+        "type": "function",
+        "z": "a9bfa6605d0b661f",
+        "name": "Validar Usuário",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (!formData.email) {\n    msg.errors.push('Campo e-mail é obrigatórios.');\n}else{\n    const regex = /\\S+@\\S+\\.\\S+/;\n    if (!regex.test(formData.email)) {\n        msg.errors.push('Endereço de e-mail invalido.')\n    }\n}\nif (!formData.senha) {\n    msg.errors.push('Campo senha é obrigatórios.');\n}\n\nif (msg.errors > 0){\n    msg.payload = null;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "6fe0d4e88f11d773",
+                "8336b0f20a9a6bb1"
+            ]
+        ]
+    },
+    {
+        "id": "8a87ed432bfd24b4",
+        "type": "function",
+        "z": "a9bfa6605d0b661f",
+        "name": "SQL SELECT Usuário EMAIL",
+        "func": "var usuario = msg.usuario;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 400,
+        "wires": [
+            [
+                "e53b777d5d19235e"
+            ]
+        ]
+    },
+    {
+        "id": "e53b777d5d19235e",
+        "type": "mysql",
+        "z": "a9bfa6605d0b661f",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1170,
+        "y": 400,
+        "wires": [
+            [
+                "900d656c3ca196f4"
+            ]
+        ]
+    },
+    {
+        "id": "08554d7669c6b7ba",
+        "type": "bcrypt",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "action": "verify",
+        "field": "usuario.senha",
+        "hash": "payload.senha",
+        "target": "",
+        "assignment": "replace",
+        "match": "isGood",
+        "outputs": 2,
+        "rounds": 10,
+        "x": 1600,
+        "y": 400,
+        "wires": [
+            [
+                "a9fd4154c9828430"
+            ],
+            [
+                "b508f7561035ce5b"
+            ]
+        ]
+    },
+    {
+        "id": "eb1e5762c6c6dd56",
+        "type": "change",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "usuario",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "8a87ed432bfd24b4"
+            ]
+        ]
+    },
+    {
+        "id": "900d656c3ca196f4",
+        "type": "change",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload[0]",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 400,
+        "wires": [
+            [
+                "08554d7669c6b7ba"
+            ]
+        ]
+    },
+    {
+        "id": "a9fd4154c9828430",
+        "type": "bcrypt",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "action": "encrypt",
+        "field": "payload.id",
+        "hash": "payload",
+        "target": "hash",
+        "assignment": "assign",
+        "match": "match",
+        "outputs": 1,
+        "rounds": "10",
+        "x": 1750,
+        "y": 380,
+        "wires": [
+            [
+                "95baaab699c70318"
+            ]
+        ]
+    },
+    {
+        "id": "95baaab699c70318",
+        "type": "change",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.senha",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "hash",
+                "pt": "msg",
+                "to": "payload.Authorization",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1940,
+        "y": 400,
+        "wires": [
+            [
+                "adf133d37dadf615",
+                "adbde4c63e83bad0"
+            ]
+        ]
+    },
+    {
+        "id": "adf133d37dadf615",
+        "type": "http response",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2090,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "adbde4c63e83bad0",
+        "type": "debug",
+        "z": "a9bfa6605d0b661f",
+        "name": "good",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2090,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6fe0d4e88f11d773",
+        "type": "switch",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "eb1e5762c6c6dd56"
+            ]
+        ]
+    },
+    {
+        "id": "8336b0f20a9a6bb1",
+        "type": "switch",
+        "z": "a9bfa6605d0b661f",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "adf133d37dadf615"
+            ]
+        ]
+    },
+    {
+        "id": "a4b1cf65de7d9230",
+        "type": "http response",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "statusCode": "401",
+        "headers": {},
+        "x": 1880,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b508f7561035ce5b",
+        "type": "change",
+        "z": "a9bfa6605d0b661f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1660,
+        "y": 500,
+        "wires": [
+            [
+                "a4b1cf65de7d9230"
+            ]
+        ]
+    },
+    {
+        "id": "c14398987f74719a",
+        "type": "debug",
+        "z": "359d5fe091bf41d6",
+        "name": "payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "593709d8d29725d4",
+        "type": "mqtt in",
+        "z": "359d5fe091bf41d6",
+        "name": "",
+        "topic": "UFAPE01/Mac",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9b8f3638da732ac0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "213c177ab008927c"
+            ]
+        ]
+    },
+    {
+        "id": "e9485bd53f91bbf7",
+        "type": "mysql",
+        "z": "359d5fe091bf41d6",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1230,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "213c177ab008927c",
+        "type": "function",
+        "z": "359d5fe091bf41d6",
+        "name": "VALIDAR DADOS",
+        "func": "const datetime = new Date().toJSON().slice(0, 19).replace('T', ' ');\n\nvar divisao = msg.payload.split(':');\nmsg.leitura = { \"mac\": divisao[0],\n                \"temperatura\": divisao[1]/100,\n                \"dataHora\": datetime};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 380,
+        "wires": [
+            [
+                "2b0a085ec7a183b4"
+            ]
+        ]
+    },
+    {
+        "id": "ab8b07910e72a624",
+        "type": "inject",
+        "z": "359d5fe091bf41d6",
+        "name": "SINAL MANUAL",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "00112233BBCC:1056:1694227341947",
+        "payloadType": "str",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "213c177ab008927c"
+            ]
+        ]
+    },
+    {
+        "id": "780ab6cef5e9e839",
+        "type": "function",
+        "z": "359d5fe091bf41d6",
+        "name": "SQL HISTORICO",
+        "func": "var sensor = msg.sensor;\nvar leitura = msg.leitura;\nmsg.topic = \"INSERT INTO `monitorTemp`.`Historico_Sensor`(`dataHora`,`temperatura`,`sensor_id`)\" +\n            \"VALUES('\"+ leitura.dataHora +\"', '\"+ leitura.temperatura+ \"', '\"+sensor.id+\"');\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 360,
+        "wires": [
+            [
+                "e9485bd53f91bbf7"
+            ]
+        ]
+    },
+    {
+        "id": "2b0a085ec7a183b4",
+        "type": "change",
+        "z": "359d5fe091bf41d6",
+        "name": "MOV. MAC",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.mac",
+                "pt": "msg",
+                "to": "leitura.mac",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 480,
+        "wires": [
+            [
+                "6731151dcab48406"
+            ]
+        ]
+    },
+    {
+        "id": "6731151dcab48406",
+        "type": "http request",
+        "z": "359d5fe091bf41d6",
+        "name": "REC. SENSOR",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "127.0.0.1:1880/sensor/obter?",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 680,
+        "y": 440,
+        "wires": [
+            [
+                "a2b3783724ccb710",
+                "c14398987f74719a"
+            ]
+        ]
+    },
+    {
+        "id": "1e6b81c99e8002b9",
+        "type": "change",
+        "z": "359d5fe091bf41d6",
+        "name": "MOV. SETOR",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor.setor",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "0fb5fbbd9761be6f"
+            ]
+        ]
+    },
+    {
+        "id": "0fb5fbbd9761be6f",
+        "type": "json",
+        "z": "359d5fe091bf41d6",
+        "name": "OBJ. SENSOR",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 160,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ca5f45ce85dc6d3",
+        "type": "debug",
+        "z": "359d5fe091bf41d6",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "leitura",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7d41e5b96a82efec",
+        "type": "function",
+        "z": "359d5fe091bf41d6",
+        "name": "TESTE TEMP",
+        "func": "var sensor = msg.sensor;\nvar leitura = msg.leitura;\nvar nivel = 0;\nif (leitura.temperatura > sensor.alertaMax ||\n    leitura.temperatura < sensor.alertaMin){\n    nivel = 1;\n}\nif (leitura.temperatura > sensor.tempMax ||\n    leitura.temperatura < sensor.tempMin) {\n    nivel = 2;\n}\nmsg.nivel = nivel;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "780ab6cef5e9e839",
+                "ed777ba9e93b5d7a",
+                "44e6a696b6db4bac"
+            ]
+        ]
+    },
+    {
+        "id": "a2b3783724ccb710",
+        "type": "change",
+        "z": "359d5fe091bf41d6",
+        "name": "MOV. SENSOR",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "7d41e5b96a82efec",
+                "3ca5f45ce85dc6d3",
+                "aed22b41dcb92d57"
+            ]
+        ]
+    },
+    {
+        "id": "ed777ba9e93b5d7a",
+        "type": "switch",
+        "z": "359d5fe091bf41d6",
+        "name": "ALERTAS?",
+        "property": "nivel",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "741d19308186a806"
+            ],
+            [
+                "52a1aa2e3b297c2c",
+                "741d19308186a806"
+            ]
+        ]
+    },
+    {
+        "id": "52a1aa2e3b297c2c",
+        "type": "function",
+        "z": "359d5fe091bf41d6",
+        "name": "SQL INSERT ALERTA",
+        "func": "var sensor = msg.sensor;\nvar leitura = msg.leitura;\nmsg.topic = \"INSERT INTO `monitorTemp`.`Alerta`(`dataHora`,`sensor_id`,`empresa_id`,`nivel`, `temperatura`)\" +\n    \"VALUES('\" + leitura.dataHora +\"','\"+sensor.id+\"','\"+sensor.empresa +\"','\"+msg.nivel+\"', '\"+ leitura.temperatura +\"');\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 320,
+        "wires": [
+            [
+                "e9485bd53f91bbf7"
+            ]
+        ]
+    },
+    {
+        "id": "aed22b41dcb92d57",
+        "type": "debug",
+        "z": "359d5fe091bf41d6",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "sensor",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "741d19308186a806",
+        "type": "function",
+        "z": "359d5fe091bf41d6",
+        "name": "SELECT ALERTA SENSOR",
+        "func": "var sensor = msg.sensor;\nconst datetime = new Date().toJSON().slice(0, 19).replace('T', ' ');\n\nmsg.topic = \"UPDATE monitorTemp.Alerta \" +\n            \"SET `resolvido` = '\" + datetime +\"' \"+\n            \"WHERE (`sensor_id` = '\" + sensor.id + \"' \" +\n            \"AND `nivel` > '\" + msg.nivel + \"' \" +\n            \"AND `resolvido` IS NULL);\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 280,
+        "wires": [
+            [
+                "e9485bd53f91bbf7"
+            ]
+        ]
+    },
+    {
+        "id": "44e6a696b6db4bac",
+        "type": "debug",
+        "z": "359d5fe091bf41d6",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "nivel",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1f85e5d61555dabe",
+        "type": "http in",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "url": "empresa/salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 400,
+        "wires": [
+            [
+                "58b2519e52a3034e"
+            ]
+        ]
+    },
+    {
+        "id": "58b2519e52a3034e",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "Validar Empresa",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\nmsg.update = true;\n\nif (!formData.id) {\n    msg.update = false;\n}\nif (!formData.nome) {\n    msg.errors.push('Campo nome é obrigatórios.');\n}\nif (!formData.cnpj) {\n    msg.errors.push('Campo CNPJ é obrigatórios.');\n}\nif (!formData.email) {\n    msg.errors.push('Campo e-mail é obrigatórios.');\n} else {\n    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/\n    if (!regex.test(formData.email)) {\n        msg.errors.push('E-mail invalido.');\n    }\n}\nif (!formData.telefone) {\n    msg.errors.push('Campo telefone é obrigatórios.');\n}\n if (!formData.endereco) {\n     msg.errors.push('Campo endereço é obrigatórios.');\n}\n\nif (msg.errors > 0){\n    msg.payload = null;\n}\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "361e4baad4f2a910",
+                "9b29b97d203c54ae"
+            ]
+        ]
+    },
+    {
+        "id": "6e02335a6b2c870f",
+        "type": "mysql",
+        "z": "e2df45bdd6ea5367",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1170,
+        "y": 500,
+        "wires": [
+            [
+                "1a86bd6b73c7c184",
+                "aa9d3142af65d00d"
+            ]
+        ]
+    },
+    {
+        "id": "361e4baad4f2a910",
+        "type": "switch",
+        "z": "e2df45bdd6ea5367",
+        "name": "UPDATE ?",
+        "property": "update",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "02670ea02abe6d7c"
+            ],
+            [
+                "160d798c55c4e4c5"
+            ]
+        ]
+    },
+    {
+        "id": "160d798c55c4e4c5",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL INSERT Empresa",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"INSERT INTO `monitorTemp`.`Empresa` (`nome`, `cnpj`, `telefone`, `email`)\" + \n            \" VALUES ('\" + empresa.nome + \"', '\"+empresa.cnpj+\"', '\"+empresa.telefone+\"', '\"+empresa.email+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 420,
+        "wires": [
+            [
+                "6e02335a6b2c870f"
+            ]
+        ]
+    },
+    {
+        "id": "aa9d3142af65d00d",
+        "type": "debug",
+        "z": "e2df45bdd6ea5367",
+        "name": "CONSOLE DO BANCO",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d4c7d060fb02d269",
+        "type": "http in",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "url": "/empresas/listar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "398e0234102cfcdb"
+            ]
+        ]
+    },
+    {
+        "id": "398e0234102cfcdb",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL LIST Empresa",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"SELECT * FROM monitorTemp.Empresa;\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "bc77bcfce7eae9bf"
+            ]
+        ]
+    },
+    {
+        "id": "345e4b1a689a637e",
+        "type": "debug",
+        "z": "e2df45bdd6ea5367",
+        "name": "CONSOLE PAYLOAD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c5b4c4f9e0bca5b1",
+        "type": "http response",
+        "z": "e2df45bdd6ea5367",
+        "name": "RESPOSTA HTTP",
+        "statusCode": "",
+        "headers": {},
+        "x": 1710,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "28d0cd0452e1b00c",
+        "type": "http in",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "url": "empresa/obter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 460,
+        "wires": [
+            [
+                "d1d28dd8d5966863",
+                "345e4b1a689a637e"
+            ]
+        ]
+    },
+    {
+        "id": "d1d28dd8d5966863",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "Buscar Empresa",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (!formData.id || Number(formData.id) == NaN) {\n    msg.errors.push('Id não é valido.');\n} \n\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "30f74c20f35a6fd4",
+                "9b29b97d203c54ae"
+            ]
+        ]
+    },
+    {
+        "id": "afebf66f6eaecc80",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL SELECT Empresa ID",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"SELECT * FROM monitorTemp.Empresa WHERE (`id` = '\" + empresa.id + \"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "6e02335a6b2c870f",
+                "2ef59333a39a7651"
+            ]
+        ]
+    },
+    {
+        "id": "1a86bd6b73c7c184",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "function 1",
+        "func": "msg.payload = {\"success\" : msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 500,
+        "wires": [
+            [
+                "c5b4c4f9e0bca5b1"
+            ]
+        ]
+    },
+    {
+        "id": "244e695ba0a9f514",
+        "type": "http in",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "url": "empresas/deletar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 520,
+        "wires": [
+            [
+                "42070db7fce40fa7"
+            ]
+        ]
+    },
+    {
+        "id": "42070db7fce40fa7",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "Validar DELETE",
+        "func": "var formData = msg.payload;\nvar errors = [];\n\nif (!formData.id) {\n    errors.push('ID invalido.');\n}\n\nmsg.errors = errors;\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "ed130e8b5a1f7a11",
+                "9b29b97d203c54ae"
+            ]
+        ]
+    },
+    {
+        "id": "3f9004ba2feb2641",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL DELETE Empresa ID",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"DELETE FROM `monitorTemp`.`Empresa` WHERE (`id` = '\"+empresa.id+\"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 520,
+        "wires": [
+            [
+                "6e02335a6b2c870f"
+            ]
+        ]
+    },
+    {
+        "id": "ed130e8b5a1f7a11",
+        "type": "switch",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "3f9004ba2feb2641"
+            ]
+        ]
+    },
+    {
+        "id": "bc77bcfce7eae9bf",
+        "type": "mysql",
+        "z": "e2df45bdd6ea5367",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1170,
+        "y": 180,
+        "wires": [
+            [
+                "c5b4c4f9e0bca5b1"
+            ]
+        ]
+    },
+    {
+        "id": "02670ea02abe6d7c",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL UPDATE Empresa",
+        "func": "var empresa = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Empresa` SET `nome` = '\" + empresa.nome +\"', `cnpj` = '\" + empresa.cnpj +\"', `telefone` = '\" + empresa.telefone +\n            \"', `email` = '\" + empresa.email +\"' WHERE (`id` = '\"+empresa.id+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "6e02335a6b2c870f"
+            ]
+        ]
+    },
+    {
+        "id": "9b29b97d203c54ae",
+        "type": "switch",
+        "z": "e2df45bdd6ea5367",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 340,
+        "wires": [
+            [
+                "c5b4c4f9e0bca5b1"
+            ]
+        ]
+    },
+    {
+        "id": "30f74c20f35a6fd4",
+        "type": "switch",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 460,
+        "wires": [
+            [
+                "afebf66f6eaecc80"
+            ]
+        ]
+    },
+    {
+        "id": "6828060c18b864a6",
+        "type": "inject",
+        "z": "e2df45bdd6ea5367",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/empresas/listar",
+        "payloadType": "str",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "398e0234102cfcdb"
+            ]
+        ]
+    },
+    {
+        "id": "2ef59333a39a7651",
+        "type": "debug",
+        "z": "e2df45bdd6ea5367",
+        "name": "CONSOLE TOPIC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1710,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "561f6aef5ca8f837",
+        "type": "http in",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "url": "usuario/salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "16e0109224c60e19"
+            ]
+        ]
+    },
+    {
+        "id": "16e0109224c60e19",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "Validar Usuário",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\nmsg.update = true;\n\nif (!formData.nome) {\n    msg.errors.push('Campo nome é obrigatórios.');\n}\nif (!formData.email) {\n    msg.errors.push('Campo e-mail é obrigatórios.');\n}else{\n    const regex = /\\S+@\\S+\\.\\S+/;\n    if (!regex.test(formData.email)) {\n        msg.errors.push('Endereço de e-mail invalido.')\n    }\n}\nif (!formData.senha) {\n    msg.errors.push('Campo senha é obrigatórios.');\n}\n if (!formData.tipoUsuario) {\n     msg.errors.push('Campo tipo é obrigatórios.');\n}\n\nif (!formData.id) {\n    msg.update = false;\n}\n\nif (msg.errors > 0){\n    msg.payload = null;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "4d5e1cc67e76c670",
+                "7809dd647524c4ae"
+            ]
+        ]
+    },
+    {
+        "id": "d694a96a336cec83",
+        "type": "mysql",
+        "z": "0a41ebc60d5d5486",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1450,
+        "y": 720,
+        "wires": [
+            [
+                "d3e752b489a8cc37",
+                "b3d9529b182661bf"
+            ]
+        ]
+    },
+    {
+        "id": "6d11e2f33f6fe9ea",
+        "type": "switch",
+        "z": "0a41ebc60d5d5486",
+        "name": "UPDATE ?",
+        "property": "update",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "e5324fd310e0821e"
+            ],
+            [
+                "b106cfef59d63268"
+            ]
+        ]
+    },
+    {
+        "id": "85591f0ef6ca0ee8",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL INSERT Usuário",
+        "func": "var usuario = msg.payload;\nmsg.topic = \"INSERT INTO`monitorTemp`.`Usuario`(`nome`, `email`, `senha`, `tipoUsuario`, `empresa_id`)\" + \n    \" VALUES ('\" + usuario.nome + \"', '\" + usuario.email + \"', '\" + usuario.senha + \"', '\" + usuario.tipoUsuario + \"', '\" + usuario.empresa + \"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 640,
+        "wires": [
+            [
+                "d694a96a336cec83",
+                "4451644d30a470bc"
+            ]
+        ]
+    },
+    {
+        "id": "0669a8bf42a5a384",
+        "type": "http in",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "url": "/usuarios/listar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "6d6184e23af0ccb3"
+            ]
+        ]
+    },
+    {
+        "id": "6d6184e23af0ccb3",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL LIST Usuário",
+        "func": "var usuario = msg.payload;\nmsg.topic = \"SELECT * FROM monitorTemp.Usuario;\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 300,
+        "wires": [
+            [
+                "d0a037a64ba39fd8"
+            ]
+        ]
+    },
+    {
+        "id": "b3d9529b182661bf",
+        "type": "debug",
+        "z": "0a41ebc60d5d5486",
+        "name": "CONSOLE PAYLOAD",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1920,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e7aa491922800450",
+        "type": "http response",
+        "z": "0a41ebc60d5d5486",
+        "name": "RESPOSTA HTTP",
+        "statusCode": "",
+        "headers": {},
+        "x": 1910,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "eb9c734d0fe2e9e2",
+        "type": "http in",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "url": "usuario/obter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "2d4873e619c082f0"
+            ]
+        ]
+    },
+    {
+        "id": "2d4873e619c082f0",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "Buscar Usuário",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (formData.id) {\n    if (!formData.id || Number(formData.id) == NaN) {\n        msg.errors.push('Id do usuário invalido.');\n    }\n} else if (formData.nac) {\n    formData.mac.replace(':', '');\n    const regex = /^([0-9A-Fa-f]{12})$/\n    if (!regex.test(formData.mac)) {\n        msg.errors.push('Endereço MAC invalido.')\n    }\n} else if (formData.email){\n    const regex = /\\S+@\\S+\\.\\S+/;\n    if (!regex.test(formData.email)){\n        msg.errors.push('Endereço de e-mail invalido.')\n    }\n}\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\n\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "4d5e1cc67e76c670",
+                "ffdb5ee9e2c753a7"
+            ]
+        ]
+    },
+    {
+        "id": "6d379aea7d04d4b7",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL SELECT Usuário ID",
+        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`id` = '\" + usuario.id + \"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 680,
+        "wires": [
+            [
+                "d694a96a336cec83"
+            ]
+        ]
+    },
+    {
+        "id": "d3e752b489a8cc37",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "function 2",
+        "func": "msg.payload = {\"success\" : msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1660,
+        "y": 720,
+        "wires": [
+            [
+                "e7aa491922800450"
+            ]
+        ]
+    },
+    {
+        "id": "d0febd7b0ec0a394",
+        "type": "http in",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "url": "usuario/deletar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 960,
+        "wires": [
+            [
+                "e7cb543227019c73",
+                "7b32ac9b91b30ed2"
+            ]
+        ]
+    },
+    {
+        "id": "e7cb543227019c73",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "Validar DELETE",
+        "func": "var formData = msg.payload;\nvar errors = [];\n\nif (!formData.id) {\n    errors.push('ID invalido.');\n}\n\nmsg.errors = errors;\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 960,
+        "wires": [
+            [
+                "f5f4018a0df413cd",
+                "4d5e1cc67e76c670"
+            ]
+        ]
+    },
+    {
+        "id": "427aab84027e9abc",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL DELETE Usuário ID",
+        "func": "var usuario = msg.payload;\nmsg.topic = \"DELETE FROM `monitorTemp`.`Usuario` WHERE (`id` = '\"+usuario.id+\"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 960,
+        "wires": [
+            [
+                "d694a96a336cec83",
+                "993635418a40c5c8"
+            ]
+        ]
+    },
+    {
+        "id": "f5f4018a0df413cd",
+        "type": "switch",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 960,
+        "wires": [
+            [
+                "427aab84027e9abc"
+            ]
+        ]
+    },
+    {
+        "id": "d0a037a64ba39fd8",
+        "type": "mysql",
+        "z": "0a41ebc60d5d5486",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1390,
+        "y": 400,
+        "wires": [
+            [
+                "e7aa491922800450"
+            ]
+        ]
+    },
+    {
+        "id": "dd0411a7b409a16f",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL UPDATE Usuário",
+        "func": "var usuario = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Usuario` SET `nome` = '\" + usuario.nome +\"', `email` = '\" + usuario.email +\"', `senha` = '\" + usuario.senha +\n    \"', `tipoUsuario` = '\" + usuario.tipoUsuario + \"', `empresa_id` = '\" + usuario.empresa + \"' WHERE (`id` = '\"+usuario.id+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 600,
+        "wires": [
+            [
+                "d694a96a336cec83"
+            ]
+        ]
+    },
+    {
+        "id": "4d5e1cc67e76c670",
+        "type": "switch",
+        "z": "0a41ebc60d5d5486",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 540,
+        "wires": [
+            [
+                "98bc2ef50a38ea7e",
+                "e7aa491922800450"
+            ]
+        ]
+    },
+    {
+        "id": "993635418a40c5c8",
+        "type": "debug",
+        "z": "0a41ebc60d5d5486",
+        "name": "CONSOLE TOPIC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1910,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a4d477c1533dfecf",
+        "type": "inject",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/usuarios/listar",
+        "payloadType": "str",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "6d6184e23af0ccb3"
+            ]
+        ]
+    },
+    {
+        "id": "98bc2ef50a38ea7e",
+        "type": "debug",
+        "z": "0a41ebc60d5d5486",
+        "name": "ERROS",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "errors",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "4451644d30a470bc",
+        "type": "debug",
+        "z": "0a41ebc60d5d5486",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "06aa3db279ea72a4",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "Buscar Sensor",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (formData.id){\n    if (!formData.id || Number(formData.id) == NaN) {\n        msg.errors.push('Id do sensor invalido.');\n    } \n} else if (formData.nac){\n    formData.mac.replace(':', '');\n    const regex = /^([0-9A-Fa-f]{12})$/\n    if (!regex.test(formData.mac)) {\n        msg.errors.push('Endereço MAC invalido.')\n    }\n} else if (formData.empresa){\n    if (!formData.empresa || Number(formData.empresa) == NaN) {\n        msg.errors.push('Id da empresa invalido.');\n    } \n}\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ffdb5ee9e2c753a7",
+        "type": "switch",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "id",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "email",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 700,
+        "wires": [
+            [
+                "6d379aea7d04d4b7"
+            ],
+            [
+                "c8d87355aa08c78c"
+            ]
+        ]
+    },
+    {
+        "id": "c8d87355aa08c78c",
+        "type": "function",
+        "z": "0a41ebc60d5d5486",
+        "name": "SQL SELECT Usuário EMAIL",
+        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 720,
+        "wires": [
+            [
+                "d694a96a336cec83"
+            ]
+        ]
+    },
+    {
+        "id": "7809dd647524c4ae",
+        "type": "switch",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 620,
+        "wires": [
+            [
+                "6d11e2f33f6fe9ea"
+            ]
+        ]
+    },
+    {
+        "id": "f58f5c0c5701f250",
+        "type": "JsonWebToken",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "tokenconfig": "",
+        "x": 1400,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b106cfef59d63268",
+        "type": "bcrypt",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "action": "encrypt",
+        "field": "payload.senha",
+        "hash": "payload",
+        "target": "payload",
+        "assignment": "replace",
+        "match": "match",
+        "outputs": 1,
+        "rounds": 10,
+        "x": 850,
+        "y": 640,
+        "wires": [
+            [
+                "85591f0ef6ca0ee8"
+            ]
+        ]
+    },
+    {
+        "id": "e5324fd310e0821e",
+        "type": "bcrypt",
+        "z": "0a41ebc60d5d5486",
+        "name": "",
+        "action": "encrypt",
+        "field": "payload.senha",
+        "hash": "payload",
+        "target": "payload",
+        "assignment": "replace",
+        "match": "match",
+        "outputs": 1,
+        "rounds": 10,
+        "x": 850,
+        "y": 600,
+        "wires": [
+            [
+                "dd0411a7b409a16f"
+            ]
+        ]
+    },
+    {
+        "id": "7b32ac9b91b30ed2",
+        "type": "debug",
+        "z": "0a41ebc60d5d5486",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "b4e7daba33b0d977",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensor/salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "2ed68a308b728ab4"
+            ]
+        ]
+    },
+    {
+        "id": "2ed68a308b728ab4",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "Validar Sensor",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\nmsg.update = true;\n\nif (!formData.id) {\n    msg.update = false;\n}\nif (formData.id) {\n    if (!formData.id || Number(formData.id) == NaN) {\n        msg.errors.push('Id do sensor invalido.');\n    }\n}\nif (formData.mac) {\n    formData.mac.replace(':', '');\n    const regex = /^([0-9A-Fa-f]{12})$/\n    if (!regex.test(formData.mac)) {\n        msg.errors.push('Endereço MAC invalido.')\n    }\n}\nif (formData.empresa) {\n    if (!formData.empresa || Number(formData.empresa) == NaN) {\n        msg.errors.push('Id da empresa invalido.');\n    }\n}\nif (!formData.empresa) {\n    msg.errors.push('Campo empresa é obrigatórios.');\n}\nif (!formData.setor) {\n    msg.errors.push('Campo setor é obrigatórios.');\n}\nif (!formData.tempMin) {\n     msg.errors.push('Campo temperatura minima é obrigatório.');\n}\nif (!formData.tempMax) {\n    msg.errors.push('Campo temperatura maxima é obrigatórios.');\n}\nif (!formData.alertaMin) {\n    msg.errors.push('Campo alera nivel 1 é obrigatórios.');\n}\nif (!formData.alertaMax) {\n    msg.errors.push('Campo alera nivel 2 é obrigatórios.');\n}\nif (!formData.tempMin && !formData.tempaMax && formData.tempaMax < formData.tempMin) {\n    msg.erros.push('Temperatura minima precisa ser menor que a maxima!')\n}\n\nif (msg.errors.length > 0){\n    msg.payload = null;\n}\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 600,
+        "wires": [
+            [
+                "862a623f8a76f106",
+                "3d86cae3cc20a04c",
+                "520f3139d5fa7a8e"
+            ]
+        ]
+    },
+    {
+        "id": "122d860a36f9307e",
+        "type": "mysql",
+        "z": "89b6e06b06b14b9e",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1170,
+        "y": 700,
+        "wires": [
+            [
+                "42011aa35d049b4c"
+            ]
+        ]
+    },
+    {
+        "id": "3d86cae3cc20a04c",
+        "type": "switch",
+        "z": "89b6e06b06b14b9e",
+        "name": "UPDATE ?",
+        "property": "update",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": true,
+        "outputs": 3,
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [],
+            [
+                "4cba60cd57f59381"
+            ],
+            [
+                "3503707ddc8e687c"
+            ]
+        ]
+    },
+    {
+        "id": "3503707ddc8e687c",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL INSERT Sensor",
+        "func": "var sensor = msg.payload; \nmsg.topic = \"INSERT INTO `monitorTemp`.`Sensor`(`nome`,`setor_id`,`tempMin`,`tempMax`,`alertaMin`,`alertaMax`,`empresa_id`,`mac`)\"+\n            \"VALUES('\" + sensor.nome + \"', '\" + sensor.setor + \"', '\" + sensor.tempMin + \"', '\" + sensor.tempMax + \"', '\" + sensor.alertaMin + \n            \"', '\" + sensor.alertaMax + \"', '\" + sensor.empresa + \"', '\" + sensor.mac + \"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 620,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "2b70cdd56cadbc91",
+        "type": "debug",
+        "z": "89b6e06b06b14b9e",
+        "name": "CONSOLE DO BANCO",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1970,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bf97ebe2577836e9",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensores/listar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "9f93a80276082f02"
+            ]
+        ]
+    },
+    {
+        "id": "9f93a80276082f02",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL LIST Sensor",
+        "func": "msg.topic = \"SELECT s.id,  s.nome, s.setor_id AS 'setor', s.nivelBateria, s.statusConexao, s.tempMin, s.tempMax, s.alertaMin, s.alertaMax, s.empresa_id AS empresa, s.mac, \" +\n            \" e.nome AS 'empresaNome', e.cnpj, e.telefone, e.email, \" +\n            \" se.nome AS 'setorNome' \" +\n            \"FROM monitorTemp.Sensor AS s \" +\n            \"INNER JOIN monitorTemp.Empresa AS e \" +\n            \"ON s.empresa_id = e.id \" +\n            \"INNER JOIN monitorTemp.Setor AS se \" +\n            \"ON s.setor_id = se.id;\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 240,
+        "wires": [
+            [
+                "d1132d5e9d62fa9c"
+            ]
+        ]
+    },
+    {
+        "id": "520f3139d5fa7a8e",
+        "type": "debug",
+        "z": "89b6e06b06b14b9e",
+        "name": "CONSOLE PAYLOAD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "93991d2d818f8735",
+        "type": "http response",
+        "z": "89b6e06b06b14b9e",
+        "name": "RESPOSTA HTTP",
+        "statusCode": "",
+        "headers": {},
+        "x": 1730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "02867b5ac45eafbb",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensor/obter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 660,
+        "wires": [
+            [
+                "96631974fdd9c38d"
+            ]
+        ]
+    },
+    {
+        "id": "96631974fdd9c38d",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "Buscar Sensor",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (formData.id){\n    if (!formData.id || Number(formData.id) == NaN) {\n        msg.errors.push('Id do sensor invalido.');\n    } \n} else if (formData.mac){\n    formData.mac.replace(':', '');\n    const regex = /^([0-9A-Fa-f]{12})$/\n    if (!regex.test(formData.mac)) {\n        msg.errors.push('Endereço MAC invalido.')\n    }\n} else if (formData.empresa){\n    if (!formData.empresa || Number(formData.empresa) == NaN) {\n        msg.errors.push('Id da empresa invalido.');\n    } \n}\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 660,
+        "wires": [
+            [
+                "c03b1603f1cd53de",
+                "862a623f8a76f106"
+            ]
+        ]
+    },
+    {
+        "id": "71c1c7a872eef8f8",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL SELECT Sensor ID",
+        "func": "var sensor = msg.payload;\nmsg.topic = \"SELECT s.id,  s.nome, s.setor_id AS 'setor', s.nivelBateria, s.statusConexao, s.tempMin, s.tempMax, s.alertaMin, s.alertaMax, \" +\n            \"s.empresa_id AS empresa, s.mac, h.temperatura \" +\n            \"FROM monitorTemp.Sensor AS s \" +\n            \"LEFT JOIN monitorTemp.Historico_Sensor AS h \" +\n            \"ON s.id = h.sensor_id \" +\n            \"WHERE s.id = '\" + sensor.id + \"' \"+\n            \"ORDER BY h.dataHora DESC LIMIT 1;\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 660,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "ad043487acf09b5b",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensor/deletar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 980,
+        "wires": [
+            [
+                "6c27b42c51b36eb6"
+            ]
+        ]
+    },
+    {
+        "id": "6c27b42c51b36eb6",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "Validar DELETE",
+        "func": "var formData = msg.payload;\nvar errors = [];\n\nif (!formData.id) {\n    errors.push('ID invalido.');\n}\n\nmsg.errors = errors;\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 980,
+        "wires": [
+            [
+                "b8747beb57193cd6",
+                "862a623f8a76f106"
+            ]
+        ]
+    },
+    {
+        "id": "829d4c9520726e23",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL DELETE Empresa ID",
+        "func": "var sensor = msg.payload;\nmsg.topic = \"DELETE FROM `monitorTemp`.`Sensor` WHERE (`id` = '\"+sensor.id+\"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 980,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "b8747beb57193cd6",
+        "type": "switch",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 980,
+        "wires": [
+            [
+                "829d4c9520726e23"
+            ]
+        ]
+    },
+    {
+        "id": "d1132d5e9d62fa9c",
+        "type": "mysql",
+        "z": "89b6e06b06b14b9e",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1190,
+        "y": 320,
+        "wires": [
+            [
+                "93991d2d818f8735",
+                "790967fd6695d181"
+            ]
+        ]
+    },
+    {
+        "id": "4cba60cd57f59381",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL UPDATE Sensor",
+        "func": "var sensor = msg.payload;\nmsg.topic = \"UPDATE `monitorTemp`.`Sensor` \"+\n            \"SET `nome` = '\" + sensor.nome +\"', `empresa_id` = '\" + sensor.empresa +\"', `setor_id` = '\" + sensor.setor + \"', `tempMin` = '\" + sensor.tempMin + \n            \"', `tempMax` = '\" + sensor.tempMax + \"', `alertaMax` = '\" + sensor.alertaMax + \"', `alertaMin` = '\" + sensor.alertaMin + \"', `mac` = '\" + sensor.mac +\n            \"' WHERE (`id` = '\"+sensor.id+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "862a623f8a76f106",
+        "type": "switch",
+        "z": "89b6e06b06b14b9e",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [
+                "93991d2d818f8735",
+                "53a48fb46c4646a7"
+            ]
+        ]
+    },
+    {
+        "id": "c03b1603f1cd53de",
+        "type": "switch",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "id",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "mac",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "empresa",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 570,
+        "y": 660,
+        "wires": [
+            [
+                "71c1c7a872eef8f8"
+            ],
+            [
+                "67a8443802cc94d3"
+            ],
+            [
+                "586fae3150348d8e"
+            ]
+        ]
+    },
+    {
+        "id": "53a48fb46c4646a7",
+        "type": "debug",
+        "z": "89b6e06b06b14b9e",
+        "name": "ERROS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "errors",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "da28334abdbb9dfc",
+        "type": "change",
+        "z": "89b6e06b06b14b9e",
+        "name": "MOV. EMPRESA",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload[0]",
+                "pt": "msg",
+                "to": "sensor",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.id",
+                "pt": "msg",
+                "to": "sensor.empresa_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1910,
+        "y": 280,
+        "wires": [
+            [
+                "d4b67aefa9e829a3"
+            ]
+        ]
+    },
+    {
+        "id": "d4b67aefa9e829a3",
+        "type": "http request",
+        "z": "89b6e06b06b14b9e",
+        "name": "REQ. EMPRESA",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "127.0.0.1:1880/empresa/obter?",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1910,
+        "y": 240,
+        "wires": [
+            [
+                "6347cef6325abfb1"
+            ]
+        ]
+    },
+    {
+        "id": "431923b292652beb",
+        "type": "http request",
+        "z": "89b6e06b06b14b9e",
+        "name": "REQ. SETOR",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "127.0.0.1:1880/setor/obter?",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1900,
+        "y": 160,
+        "wires": [
+            [
+                "208b9bfbc5473a36"
+            ]
+        ]
+    },
+    {
+        "id": "6347cef6325abfb1",
+        "type": "change",
+        "z": "89b6e06b06b14b9e",
+        "name": "MOV. SETOR",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor.empresa",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.id",
+                "pt": "msg",
+                "to": "sensor.setor_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1900,
+        "y": 200,
+        "wires": [
+            [
+                "431923b292652beb"
+            ]
+        ]
+    },
+    {
+        "id": "208b9bfbc5473a36",
+        "type": "change",
+        "z": "89b6e06b06b14b9e",
+        "name": "MOV. SETOR",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor.setor",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.success[0]",
+                "pt": "msg",
+                "to": "sensor",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1900,
+        "y": 120,
+        "wires": [
+            [
+                "13ba110a22302536"
+            ]
+        ]
+    },
+    {
+        "id": "13ba110a22302536",
+        "type": "json",
+        "z": "89b6e06b06b14b9e",
+        "name": "OBJ. SENSOR",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1900,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42011aa35d049b4c",
+        "type": "change",
+        "z": "89b6e06b06b14b9e",
+        "name": "MOV. SUCCESS",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.success",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1430,
+        "y": 700,
+        "wires": [
+            [
+                "93991d2d818f8735"
+            ]
+        ]
+    },
+    {
+        "id": "67a8443802cc94d3",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL SELECT Sensor MAC",
+        "func": "var sensor = msg.payload;\nmsg.topic = \"SELECT s.id,  s.nome, s.setor_id AS 'setor', s.nivelBateria, s.statusConexao, s.tempMin, s.tempMax, s.alertaMin, s.alertaMax, s.empresa_id AS empresa, s.mac \" + \n            \"FROM monitorTemp.Sensor AS s where s.mac = '\"+ sensor.mac +\"';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 700,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "586fae3150348d8e",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL SELECT Sensor EMPRESA",
+        "func": "var sensor = msg.payload;\nmsg.topic = \"SELECT s.id,  s.nome, s.setor_id AS 'setor', s.nivelBateria, s.statusConexao, s.tempMin, s.tempMax, s.alertaMin, s.alertaMax, s.empresa_id AS empresa, s.mac \" + \n    \"FROM monitorTemp.Sensor AS s where s.empresa_id = '\" + sensor.empresa +\"';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 740,
+        "wires": [
+            [
+                "122d860a36f9307e"
+            ]
+        ]
+    },
+    {
+        "id": "0beb07ed277378f6",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensores/listarSensoresPorEmpresa",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "8ac6b084b56e15ad"
+            ]
+        ]
+    },
+    {
+        "id": "8ac6b084b56e15ad",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL LIST Sensor por Empresa",
+        "func": "var idEmpresa = msg.payload;\n\nmsg.topic = \"SELECT s.id, s.nome FROM monitorTemp.Sensor s WHERE s.empresa_id = \"+ idEmpresa.idEmpresa + \";\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 320,
+        "wires": [
+            [
+                "d1132d5e9d62fa9c"
+            ]
+        ]
+    },
+    {
+        "id": "432d9047b9ee75a2",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensores/listarSensoresPorSetor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "589de51b269990b0"
+            ]
+        ]
+    },
+    {
+        "id": "589de51b269990b0",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL LIST Sensor por Setor",
+        "func": "var idSetor = msg.payload;\n\nmsg.topic = \"SELECT s.id, s.nome FROM monitorTemp.Sensor s WHERE s.setor_id = \" + idSetor.idSetor +\";\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 400,
+        "wires": [
+            [
+                "d1132d5e9d62fa9c"
+            ]
+        ]
+    },
+    {
+        "id": "b5ebedc1e9776dfb",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensores/ultimaMedicao",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "c2e09a404c603431"
+            ]
+        ]
+    },
+    {
+        "id": "c2e09a404c603431",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL GET Ultimo Registro",
+        "func": "var idSensor = msg.payload;\n\nmsg.topic = \n`\nSELECT sh.temperatura, s.tempMin, s.tempMax, s.alertaMin, s.alertaMax, sh.dataHora\nFROM Sensor s\nJOIN Historico_Sensor sh ON s.id = sh.sensor_id\nWHERE s.id = ` + idSensor.id + `\nORDER BY sh.dataHora DESC\nLIMIT 1;`;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 60,
+        "wires": [
+            [
+                "d1132d5e9d62fa9c",
+                "790967fd6695d181"
+            ]
+        ]
+    },
+    {
+        "id": "790967fd6695d181",
+        "type": "debug",
+        "z": "89b6e06b06b14b9e",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7e77b9a450febf66",
+        "type": "http in",
+        "z": "89b6e06b06b14b9e",
+        "name": "",
+        "url": "sensores/ultimasMedicoes",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "9a7239b0f0d18b18"
+            ]
+        ]
+    },
+    {
+        "id": "9a7239b0f0d18b18",
+        "type": "function",
+        "z": "89b6e06b06b14b9e",
+        "name": "SQL GET Ultimos Medicoes",
+        "func": "var id = msg.payload;\n\nvar where = '';\nif (id.hasOwnProperty(\"idEmpresa\")) {\n    where = ' empresa_id = '+id.idEmpresa\n} else {\n    where = ' setor_id = ' + id.idSetor\n}\n\nmsg.topic = \n`\nWITH SensorCTE AS (\n  SELECT\n    hs.sensor_id,\n    hs.temperatura,\n    hs.dataHora,\n    ROW_NUMBER() OVER (PARTITION BY hs.sensor_id ORDER BY hs.dataHora DESC) AS rn\n  FROM Historico_Sensor hs\n  WHERE hs.sensor_id IN (SELECT id FROM Sensor WHERE `+where+` )\n)\n\nSELECT sc.sensor_id AS id, s.nome, sc.temperatura, sc.dataHora\nFROM SensorCTE sc\nJOIN Sensor s ON sc.sensor_id = s.id\nWHERE sc.rn <= 10\nORDER BY id ASC, sc.dataHora DESC;`;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "d1132d5e9d62fa9c",
+                "790967fd6695d181"
+            ]
+        ]
+    },
+    {
+        "id": "e08dede062ab5c12",
+        "type": "http in",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "url": "perfil/salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 460,
+        "wires": [
+            [
+                "64a5ace9e31be5ca"
+            ]
+        ]
+    },
+    {
+        "id": "64a5ace9e31be5ca",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "Validar Empresa",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\nmsg.update = true;\n\nif (!formData.id) {\n    msg.update = false;\n}\nif (!formData.nome) {\n    msg.errors.push('Campo nome é obrigatórios.');\n}\nif (!formData.empresa) {\n    msg.errors.push('Campo empresa é obrigatórios.');\n}\n\nif (msg.errors > 0){\n    msg.payload = null;\n}\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "db22e48d8669990d",
+                "5351af8910e9c2ec",
+                "e993fb4bee88a1bb"
+            ]
+        ]
+    },
+    {
+        "id": "312e1688b742a133",
+        "type": "mysql",
+        "z": "6d155e6adce3a118",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1170,
+        "y": 560,
+        "wires": [
+            [
+                "c48fed523db47f38",
+                "22a1613470741daf"
+            ]
+        ]
+    },
+    {
+        "id": "db22e48d8669990d",
+        "type": "switch",
+        "z": "6d155e6adce3a118",
+        "name": "UPDATE ?",
+        "property": "update",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "3863823fe9b89a54"
+            ],
+            [
+                "dd94f95137376909"
+            ]
+        ]
+    },
+    {
+        "id": "dd94f95137376909",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SQL INSERT Empresa",
+        "func": "var perfil = msg.payload;\n\nmsg.topic = \"INSERT INTO`monitorTemp`.`Perfil`(`nome`, `empresa_id`) \" + \n            \" VALUES ('\" + perfil.nome + \"', '\"+perfil.empresa+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [
+                "312e1688b742a133"
+            ]
+        ]
+    },
+    {
+        "id": "22a1613470741daf",
+        "type": "debug",
+        "z": "6d155e6adce3a118",
+        "name": "CONSOLE DO BANCO",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7132e564a11376e5",
+        "type": "http in",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "url": "perfis/listar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 140,
+        "wires": [
+            [
+                "c195787cd19035d3"
+            ]
+        ]
+    },
+    {
+        "id": "c195787cd19035d3",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SQL LIST Empresa",
+        "func": "var perfil = msg.payload;\nmsg.topic = \"SELECT P.id, P.nome, P.empresa_id, E.nome as 'nomeEmpresa', E.cnpj, E.telefone, E.email FROM monitorTemp.Perfil as P Inner join Empresa as E on P.empresa_id = E.id;\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "0773ba353b9cd885"
+            ]
+        ]
+    },
+    {
+        "id": "984569a86f93e7a0",
+        "type": "debug",
+        "z": "6d155e6adce3a118",
+        "name": "CONSOLE PAYLOAD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "094fe09aea18ed52",
+        "type": "http response",
+        "z": "6d155e6adce3a118",
+        "name": "RESPOSTA HTTP",
+        "statusCode": "",
+        "headers": {},
+        "x": 1710,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "968e338e5148a9e9",
+        "type": "http in",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "url": "perfil/obter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 520,
+        "wires": [
+            [
+                "43dd125e718f4961"
+            ]
+        ]
+    },
+    {
+        "id": "43dd125e718f4961",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "Buscar Empresa",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (!formData.id || Number(formData.id) == NaN) {\n    msg.errors.push('Id não é valido.');\n} \n\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "c43bcd04a8a20d08",
+                "5351af8910e9c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "687ce1ef0402e685",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SQL SELECT Empresa ID",
+        "func": "var perfil = msg.payload;\nmsg.topic = \"SELECT * FROM monitorTemp.Perfil where Perfil.id = \"+ perfil.id +\";\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 520,
+        "wires": [
+            [
+                "312e1688b742a133"
+            ]
+        ]
+    },
+    {
+        "id": "c48fed523db47f38",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "function 3",
+        "func": "msg.payload = {\"success\" : msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 560,
+        "wires": [
+            [
+                "094fe09aea18ed52"
+            ]
+        ]
+    },
+    {
+        "id": "7d381c51fcab1402",
+        "type": "http in",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "url": "perfil/deletar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "7c6c6883056961b4"
+            ]
+        ]
+    },
+    {
+        "id": "7c6c6883056961b4",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "Validar DELETE",
+        "func": "var formData = msg.payload;\nvar errors = [];\n\nif (!formData.id) {\n    errors.push('ID invalido.');\n}\n\nmsg.errors = errors;\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "eecd3e5b5a2db8cd",
+                "5351af8910e9c2ec"
+            ]
+        ]
+    },
+    {
+        "id": "eb679ddd7a30dcce",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SQL DELETE Empresa ID",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"DELETE FROM `monitorTemp`.`Empresa` WHERE (`id` = '\"+empresa.id+\"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [
+                "312e1688b742a133"
+            ]
+        ]
+    },
+    {
+        "id": "eecd3e5b5a2db8cd",
+        "type": "switch",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "eb679ddd7a30dcce"
+            ]
+        ]
+    },
+    {
+        "id": "0773ba353b9cd885",
+        "type": "mysql",
+        "z": "6d155e6adce3a118",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 770,
+        "y": 140,
+        "wires": [
+            [
+                "ee463124461d8aa5"
+            ]
+        ]
+    },
+    {
+        "id": "3863823fe9b89a54",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SQL UPDATE Empresa",
+        "func": "var empresa = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Empresa` SET `nome` = '\" + empresa.nome +\"', `cnpj` = '\" + empresa.cnpj +\"', `telefone` = '\" + empresa.telefone +\n            \"', `email` = '\" + empresa.email +\"' WHERE (`id` = '\"+empresa.id+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "312e1688b742a133"
+            ]
+        ]
+    },
+    {
+        "id": "5351af8910e9c2ec",
+        "type": "switch",
+        "z": "6d155e6adce3a118",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "094fe09aea18ed52",
+                "984569a86f93e7a0"
+            ]
+        ]
+    },
+    {
+        "id": "c43bcd04a8a20d08",
+        "type": "switch",
+        "z": "6d155e6adce3a118",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "687ce1ef0402e685"
+            ]
+        ]
+    },
+    {
+        "id": "30d7b7272fb86084",
+        "type": "debug",
+        "z": "6d155e6adce3a118",
+        "name": "CONSOLE TOPIC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1710,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ee463124461d8aa5",
+        "type": "function",
+        "z": "6d155e6adce3a118",
+        "name": "SUBTIPO",
+        "func": "var result = msg.payload[0];\nvar perfil =   {\"id\": result.id,\n                \"nome\": result.nome,\n                \"empresa\": {\"id\": result.empresa_id,\n                            \"nome\": result.nomeEmpresa\n                            }\n                };\nmsg.payload = [perfil];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 140,
+        "wires": [
+            [
+                "094fe09aea18ed52"
+            ]
+        ]
+    },
+    {
+        "id": "e993fb4bee88a1bb",
+        "type": "debug",
+        "z": "6d155e6adce3a118",
+        "name": "ERROS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "errors",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "235ca878ce29465f",
+        "type": "http in",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "url": "setor/salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "3dac06890dd70cf6"
+            ]
+        ]
+    },
+    {
+        "id": "3dac06890dd70cf6",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "Validar Setor",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\nmsg.update = true;\n\nif (!formData.id) {\n    msg.update = false;\n}\nif (!formData.nome) {\n    msg.errors.push('Campo nome é obrigatórios.');\n}\nif (!formData.empresa) {\n    msg.errors.push('Campo empresa é obrigatórios.');\n}\n\n\nif (msg.errors > 0){\n    msg.payload = null;\n}\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 520,
+        "wires": [
+            [
+                "49da157a5503fd2a",
+                "9f39157e58e19284"
+            ]
+        ]
+    },
+    {
+        "id": "2ab816042879f751",
+        "type": "mysql",
+        "z": "38a28c34a174e449",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1210,
+        "y": 620,
+        "wires": [
+            [
+                "e0199c0886d012d1",
+                "3806f79a2528789d"
+            ]
+        ]
+    },
+    {
+        "id": "49da157a5503fd2a",
+        "type": "switch",
+        "z": "38a28c34a174e449",
+        "name": "UPDATE ?",
+        "property": "update",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 610,
+        "y": 520,
+        "wires": [
+            [
+                "4bc0969a95779342"
+            ],
+            [
+                "6ee67f2b65a68134"
+            ]
+        ]
+    },
+    {
+        "id": "6ee67f2b65a68134",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL INSERT Setor",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"INSERT INTO`monitorTemp`.`Setor`(`nome`, `empresa_id`) \" + \n    \" VALUES ('\" + setor.nome + \"', \" + setor.empresa + \");\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 540,
+        "wires": [
+            [
+                "2ab816042879f751"
+            ]
+        ]
+    },
+    {
+        "id": "3806f79a2528789d",
+        "type": "debug",
+        "z": "38a28c34a174e449",
+        "name": "CONSOLE DO BANCO",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e9fbb4724a1755ab",
+        "type": "http in",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "url": "setor/listar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "3c38f4575c4c7436"
+            ]
+        ]
+    },
+    {
+        "id": "3c38f4575c4c7436",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL LIST Setor",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"SELECT s.id, s.nome, e.nome AS 'empresa' FROM monitorTemp.Setor AS s INNER JOIN monitorTemp.Empresa as e on s.empresa_id = e.id ;\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 200,
+        "wires": [
+            [
+                "f19753762ab366a3"
+            ]
+        ]
+    },
+    {
+        "id": "07429b163c53daf6",
+        "type": "debug",
+        "z": "38a28c34a174e449",
+        "name": "CONSOLE PAYLOAD",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1760,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "de7a2c34eb9693ca",
+        "type": "http response",
+        "z": "38a28c34a174e449",
+        "name": "RESPOSTA HTTP",
+        "statusCode": "",
+        "headers": {},
+        "x": 1750,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d98e0de4a985ca9a",
+        "type": "http in",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "url": "setor/obter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "2eacce2ff7288144"
+            ]
+        ]
+    },
+    {
+        "id": "2eacce2ff7288144",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "Buscar Setor",
+        "func": "var formData = msg.payload;\nmsg.errors = [];\n\nif (formData.id) {\n    if (!formData.id || Number(formData.id) == NaN) {\n        msg.errors.push('Id do setor invalido.');\n    }\n} else if (formData.empresa) {\n    if (!formData.empresa || Number(formData.empresa) == NaN) {\n        msg.errors.push('Id da empresa invalido.');\n    }\n}\n\n\nif (msg.length > 0) {\n    msg.payload = null;\n    \n}\nreturn  msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 580,
+        "wires": [
+            [
+                "b88154b4834c5be0",
+                "9f39157e58e19284"
+            ]
+        ]
+    },
+    {
+        "id": "46e1d96a02f2d027",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL SELECT Setor ID",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"SELECT s.id, s.nome, s.empresa_id AS 'empresa' FROM monitorTemp.Setor AS s where s.id = '\"+ setor.id +\"';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 580,
+        "wires": [
+            [
+                "2ab816042879f751"
+            ]
+        ]
+    },
+    {
+        "id": "e0199c0886d012d1",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "function 6",
+        "func": "msg.payload = {\"success\" : msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1480,
+        "y": 620,
+        "wires": [
+            [
+                "de7a2c34eb9693ca",
+                "07429b163c53daf6"
+            ]
+        ]
+    },
+    {
+        "id": "2bc6a998fbb3d881",
+        "type": "http in",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "url": "setor/deletar",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "c5401709ecf622f9"
+            ]
+        ]
+    },
+    {
+        "id": "c5401709ecf622f9",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "Validar DELETE",
+        "func": "var formData = msg.payload;\nvar errors = [];\n\nif (!formData.id) {\n    errors.push('ID invalido.');\n}\n\nmsg.errors = errors;\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 880,
+        "wires": [
+            [
+                "3871f1561bb5508a",
+                "9f39157e58e19284"
+            ]
+        ]
+    },
+    {
+        "id": "17c0f1cdda5e49f0",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL DELETE Setor ID",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"DELETE FROM `monitorTemp`.`Setor` WHERE (`id` = '\"+setor.id+\"');\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 880,
+        "wires": [
+            [
+                "2ab816042879f751"
+            ]
+        ]
+    },
+    {
+        "id": "3871f1561bb5508a",
+        "type": "switch",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 880,
+        "wires": [
+            [
+                "17c0f1cdda5e49f0"
+            ]
+        ]
+    },
+    {
+        "id": "f19753762ab366a3",
+        "type": "mysql",
+        "z": "38a28c34a174e449",
+        "mydb": "e6de909701d645c6",
+        "name": "Banco de Dados",
+        "x": 1210,
+        "y": 300,
+        "wires": [
+            [
+                "de7a2c34eb9693ca"
+            ]
+        ]
+    },
+    {
+        "id": "4bc0969a95779342",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL UPDATE Setor",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Setor` SET `nome` = '\" + setor.nome +\"', `empresa_id` = '\" + setor.empresa_id +\"' WHERE (`id` = '\"+setor.id+\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 500,
+        "wires": [
+            [
+                "2ab816042879f751"
+            ]
+        ]
+    },
+    {
+        "id": "9f39157e58e19284",
+        "type": "switch",
+        "z": "38a28c34a174e449",
+        "name": "ERRORS?",
+        "property": "errors.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "de7a2c34eb9693ca",
+                "9e8878d374d5f591"
+            ]
+        ]
+    },
+    {
+        "id": "b88154b4834c5be0",
+        "type": "switch",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "id",
+                "vt": "str"
+            },
+            {
+                "t": "hask",
+                "v": "empresa",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 580,
+        "wires": [
+            [
+                "46e1d96a02f2d027"
+            ],
+            [
+                "3fb5133963261aa3"
+            ]
+        ]
+    },
+    {
+        "id": "c95ca7cd55b6fe09",
+        "type": "http in",
+        "z": "38a28c34a174e449",
+        "name": "",
+        "url": "setor/obterPorEmpresa",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "e239851ea085eeda"
+            ]
+        ]
+    },
+    {
+        "id": "e239851ea085eeda",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL LIST Setor por Empresa",
+        "func": "var setor = msg.payload;\n\nmsg.topic = \"SELECT s.id, s.nome, s.empresa_id AS 'empresa' FROM monitorTemp.Setor AS s where empresa_id = '\" + setor.idEmpresa+\" ';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 320,
+        "wires": [
+            [
+                "f19753762ab366a3"
+            ]
+        ]
+    },
+    {
+        "id": "9e8878d374d5f591",
+        "type": "debug",
+        "z": "38a28c34a174e449",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "errors",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3fb5133963261aa3",
+        "type": "function",
+        "z": "38a28c34a174e449",
+        "name": "SQL SELECT Setor EMPRESA",
+        "func": "\nmsg.topic = \"SELECT s.id, s.nome, s.empresa_id AS 'empresa' FROM monitorTemp.Setor AS s where s.empresa_id = '\" + msg.payload.empresa +\"';\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 620,
+        "wires": [
+            [
+                "2ab816042879f751"
+            ]
+        ]
+    },
+    {
+        "id": "0f30f40e2184377b",
+        "type": "inject",
+        "z": "38a28c34a174e449",
+        "name": "setor/obter",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"empresa\": 36}",
+        "payloadType": "json",
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "2eacce2ff7288144"
+            ]
+        ]
+    }
+]
