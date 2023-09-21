@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- navbar -->
+    <script type="text/javascript" src="./navbar.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function verificaModoEdicao() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idParam = urlParams.get("id");
+
+                if (idParam) {
+
+                    // Altera o título da página
+                    document.title = "Edição de Empresa";
+
+                    // Altera o título <h2> da página
+                    const tituloH2 = document.querySelector("h2");
+                    if (tituloH2) {
+                        tituloH2.textContent = "Edição de Empresa";
+                    }
+
+                    const botao = document.getElementById("submit").innerText = "Atualizar";
+
+
+                    fetch("http://matrixprovedor.net:9153/empresa/obter?id=" + idParam)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Preencher o formulário com os dados obtidos
+                            const formData = data.success[0]; // Supondo que os dados retornados são um objeto JSON com os campos correspondentes aos campos do formulário
+                            
+                            for (const key in formData) {
+                                if (formData.hasOwnProperty(key)) {
+                                    const inputElement = document.querySelector(`[name="${key}"]`);
+                                    if (inputElement) {
+                                        if (key === 'endereco') {
+                                            // Preencher campos de endereço dentro do objeto 'endereco'
+                                            const enderecoData = formData[key];
+                                            for (const enderecoKey in enderecoData) {
+                                                if (enderecoData.hasOwnProperty(enderecoKey)) {
+                                                    const enderecoInputElement = document.querySelector(`[name="endereco.${enderecoKey}"]`);
+                                                    if (enderecoInputElement) {
+                                                        enderecoInputElement.value = enderecoData[enderecoKey];
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            // Preencher outros campos
+                                            inputElement.value = formData[key];
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            alert("Erro ao obter dados da empresa");
+                            console.error(data.error);
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao obter dados da empresa");
+                        console.error(error);
+                    });
+                }
+            }
+
+            verificaModoEdicao();
+
+            document.getElementById("empresaForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                const formObject = {};
+				
+                // Converte os dados do formulário em um objeto JavaScript
+                formData.forEach((value, key) => {
+                    // Se o campo contiver um ponto, divide-o em um objeto aninhado
+                    if (key.includes(".")) {
+                        const keys = key.split(".");
+                        let nestedObject = formObject;
+                        keys.forEach((nestedKey, index) => {
+                            if (index === keys.length - 1) {
+                                nestedObject[nestedKey] = value;
+                            } else {
+                                if (!nestedObject[nestedKey]) {
+                                    nestedObject[nestedKey] = {};
+                                }
+                                nestedObject = nestedObject[nestedKey];
+                            }
+                        });
+                    } else {
+                        formObject[key] = value;
+                    }
+                });
+
+                // Converte o objeto em JSON
+                const formDataJSON = JSON.stringify(formObject);
+
+                // Exibe o JSON no console (você pode enviar isso para o servidor)
+                //console.log(formDataJSON);
+
+                fetch("http://matrixprovedor.net:9153/empresa/salvar", {
+                    method: "POST", // Método HTTP para enviar dados
+                    headers: {
+                        "Content-Type": "application/json" // Tipo de conteúdo JSON
+                    },
+                    body: formDataJSON // Dados do formulário em JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Empresa salva com sucesso");
+                        window.location.href = "empresas.html"; // Redireciona em caso de sucesso
+                    } else {
+                        alert("Erro ao salvar empresa");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao enviar os dados");
+                    console.error(error);
+                });
+            });
+        });
+    </script>
+
+    <title>Cadastro de Empresa</title>
+</head>
+<body>
+
+    <div id="navbar"></div>
+    
+    <div class="container">
+        <h2>Cadastrar Nova Empresa</h2>
+    </div>
+    
+    <div class="container">
+        <form id="empresaForm">
+            <input type="hidden" id="id" name="id">
+            <div class="form-group">
+                <label for="nome">Nome da Empresa:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" class="form-control" id="cnpj" name="cnpj" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <strong>Endereço:</strong>
+                <div class="form-group">
+                    <label for="endereco.cep">CEP:</label>
+                    <input type="text" class="form-control" id="endereco.cep" name="endereco.cep" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco.cidade">Cidade:</label>
+                    <input type="text" class="form-control" id="endereco.cidade" name="endereco.cidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco.estado">Estado:</label>
+                    <input type="text" class="form-control" id="endereco.estado" name="endereco.estado" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco.rua">Rua:</label>
+                    <input type="text" class="form-control" id="endereco.rua" name="endereco.rua" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco.numero">Número:</label>
+                    <input type="text" class="form-control" id="endereco.numero" name="endereco.numero" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco.complemento">Complemento:</label>
+                    <input type="text" class="form-control" id="endereco.complemento" name="endereco.complemento">
+                </div>
+            </div>
+            <br>
+            <button id="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

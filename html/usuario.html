@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- navbar -->
+    <script type="text/javascript" src="./navbar.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function verificaModoEdicao() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idParam = urlParams.get("id");
+
+                if (idParam) {
+                    // Altera o título da página
+                    document.title = "Edição de Usuario";
+
+                    // Altera o título <h2> da página
+                    const tituloH2 = document.querySelector("h2");
+                    if (tituloH2) {
+                        tituloH2.textContent = "Edição de Usuario";
+                    }
+
+                    const botao = document.getElementById("submit").innerText = "Atualizar";
+
+                    fetch("http://matrixprovedor.net:9153/usuario/obter?id=" + idParam)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Preencher o formulário com os dados obtidos
+                            const formData = data.success[0]; // Supondo que os dados retornados são um objeto JSON com os campos correspondentes aos campos do formulário
+                            
+                            for (const key in formData) {
+                                if (formData.hasOwnProperty(key)) {
+                                    const inputElement = document.querySelector(`[name="${key}"]`);
+                                    if (inputElement) {
+                                        inputElement.value = formData[key];
+                                    }
+                                }
+                            }
+                        } else {
+                            alert("Erro ao obter dados do usuario");
+                            console.error(data.error);
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao obter dados do usuario");
+                        console.error(error);
+                    });
+                }
+            }
+
+            function carregarEmpresas() {
+                fetch('http://matrixprovedor.net:9153/empresas/listar') // Substitua pela rota correta para obter todas as empresas
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectEmpresa = document.getElementById("empresa");
+                        selectEmpresa.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione uma empresa";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectEmpresa.appendChild(optionVazio);
+                        
+                        // Preenche o select com as empresas
+                        data.forEach(empresa => {
+                            const option = document.createElement("option");
+                            option.value = empresa.id;
+                            option.textContent = empresa.nome;
+                            selectEmpresa.appendChild(option);
+                        });
+
+                        verificaModoEdicao();
+                    } else {
+                        alert("Erro ao carregar empresas");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar empresas");
+                    console.error(error);
+                });
+            }
+/*
+            // Função para carregar os perfis com base na empresa selecionada
+            function carregarPerfis(idEmpresa) {
+                // Substitua "/perfis/obterPorEmpresa" pela rota correta para obter os perfis da empresa
+                fetch(`http://matrixprovedor.net:9153/perfis/obterPorEmpresa?idEmpresa=${idEmpresa}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const selectSetor = document.getElementById("perfil");
+                        selectSetor.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        const optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione um perfil";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectSetor.appendChild(optionVazio);
+
+                        // Preenche o select com os perfis da empresa
+                        
+						data.perfis.forEach(setor => {
+                            const option = document.createElement("option");
+                            option.value = setor.id;
+                            option.textContent = setor.nome;
+                            selectSetor.appendChild(option);
+                        });
+                    } else {
+                        alert("Erro ao carregar perfis");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar perfis");
+                    console.error(error);
+                });
+            }
+*/
+            // Chama a função para carregar as empresas ao carregar a página
+            carregarEmpresas();
+
+            // Evento de mudança na seleção da empresa
+            const selectEmpresa = document.getElementById("empresa");
+            selectEmpresa.addEventListener("change", function() {
+                const idEmpresaSelecionada = selectEmpresa.value;
+                if (idEmpresaSelecionada) {
+                    // Chama a função para carregar os perfis com base na empresa selecionada
+                    //carregarPerfis(idEmpresaSelecionada);
+                }
+            });
+
+            document.getElementById("usuarioForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                const formObject = {};
+
+                // Converte os dados do formulário em um objeto JavaScript
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+
+                // Converte o objeto em JSON
+                const formDataJSON = JSON.stringify(formObject);
+
+                // Exibe o JSON no console (você pode enviar isso para o servidor)
+                console.log(formDataJSON);
+
+                // Substitua "/usuario/cadastrar" pela rota correta para cadastrar o usuario no seu servidor
+                fetch("http://matrixprovedor.net:9153/usuario/salvar", {
+                    method: "POST", // Método HTTP para enviar dados
+                    headers: {
+                        "Content-Type": "application/json" // Tipo de conteúdo JSON
+                    },
+                    body: formDataJSON // Dados do formulário em JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Usuario salvo com sucesso");
+                        // Redireciona ou faz qualquer ação necessária após o cadastro bem-sucedido
+                    } else {
+                        alert("Erro ao salvar usuario");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao enviar os dados");
+                    console.error(error);
+                });
+            });
+        });
+    </script>
+
+    <title>Cadastro de Usuario</title>
+</head>
+<body>
+
+    <div id="navbar"></div>
+    
+    <div class="container">
+        <h2>Cadastrar Novo Usuario</h2>
+    </div>
+    
+    <div class="container">
+        <form id="usuarioForm">
+            <input type="hidden" id="id" name="id">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" required>
+            </div>
+            <div class="form-group">
+                <label for="tipoUsuario">Tipo de Usuário:</label>
+                <select class="form-select form-control" id="tipoUsuario" name="tipoUsuario" required>
+                    <option value="1">Usuário</option>
+                    <option value="2">Supervisor</option>
+                    <option value="3">Gerente</option>
+                    <option value="4">AdminMaster</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa:</label>
+                <select class="form-select form-control" id="empresa" name="empresa" required>
+                    <!-- Opções de empresas serão preenchidas dinamicamente pela função JavaScript -->
+                </select>
+            </div>
+            <br>
+            <button id="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

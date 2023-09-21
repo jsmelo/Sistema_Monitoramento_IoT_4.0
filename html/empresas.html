@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- navbar -->
+    <script type="text/javascript" src="./navbar.js"></script>
+
+    <script>
+        fetch('http://matrixprovedor.net:9153/empresas/listar')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector('tbody');
+
+            data.forEach(empresa => {
+                const row = document.createElement('tr');
+                row.classList.add('text-nowrap');
+
+                const nomeCell = document.createElement('td');
+                nomeCell.textContent = empresa.nome;
+                row.appendChild(nomeCell);
+
+                const cnpjCell = document.createElement('td');
+                cnpjCell.textContent = empresa.cnpj;
+                row.appendChild(cnpjCell);
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = empresa.email;
+                row.appendChild(emailCell);
+
+                const telefoneCell = document.createElement('td');
+                telefoneCell.textContent = empresa.telefone;
+                row.appendChild(telefoneCell);
+
+                //Ações
+                const actionsCell = document.createElement('td');
+                //Editar
+                const editButton = document.createElement('button');
+                editButton.classList.add('btn', 'btn-primary');
+                editButton.addEventListener('click', () => editarEmpresa(empresa.id));
+                editButton.textContent = 'Editar';
+                actionsCell.appendChild(editButton);
+                //Deletar
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('btn', 'btn-danger');
+                deleteButton.addEventListener('click', () => deletarEmpresa(empresa.id, empresa.nome));
+                deleteButton.textContent = 'Deletar';
+                actionsCell.appendChild(deleteButton);
+
+                row.appendChild(actionsCell);
+
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        function deletarEmpresa(empresaId, empresaNome) {
+          const confirmationMessage = `Tem certeza que deseja deletar a empresa ${empresaNome}?`;
+        
+          if (confirm(confirmationMessage)) {
+            fetch(`http://matrixprovedor.net:9153/empresas/deletar?id=${empresaId}`)
+              .then(response => {
+                if (response.success) {
+                  location.reload();
+                } else {
+                  console.error("Error deleting empresa:", response.status);
+                  alert("Erro ao deletar empresa");
+                }
+              })
+              .catch(error => {
+                console.error("Error deleting empresa:", error);
+                alert("Erro ao deletar empresa");
+              });
+          }
+        }
+        
+        function editarEmpresa(empresaId) {
+          window.location.href = 'http://matrixprovedor.net:9152/empresa.html?id=' + empresaId;
+        }
+    </script>
+
+    <title>Empresas</title>
+</head>
+<body>
+
+    <div id="navbar"></div>
+    
+    <div class="container">
+        <h2>Empresas</h2>
+    </div>
+    
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>CNPJ</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

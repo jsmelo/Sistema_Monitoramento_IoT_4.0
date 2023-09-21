@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function verificaModoEdicao() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idParam = urlParams.get("id");
+
+                if (idParam) {
+                    // Altera o título da página
+                    document.title = "Edição de Perfil";
+
+                    // Altera o título <h2> da página
+                    const tituloH2 = document.querySelector("h2");
+                    if (tituloH2) {
+                        tituloH2.textContent = "Edição de Perfil";
+                    }
+
+                    const botao = document.getElementById("submit").innerText = "Atualizar";
+
+                    fetch("http://matrixprovedor.net:9153/perfil/obter?id=" + idParam)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Preencher o formulário com os dados obtidos
+                            const formData = data.success[0]; // Supondo que os dados retornados são um objeto JSON com os campos correspondentes aos campos do formulário
+                            
+                            for (const key in formData) {
+                                if (formData.hasOwnProperty(key)) {
+                                    const inputElement = document.querySelector(`[name="${key}"]`);
+                                    if (inputElement) {
+                                        if (key === 'menus') {
+                                            // Preencher checkboxes de menus
+                                            const selectedMenus = formData[key];
+                                            selectedMenus.forEach(menu => {
+                                                const menuCheckbox = document.querySelector(`[name="menus[]"][value="${menu}"]`);
+                                                if (menuCheckbox) {
+                                                    menuCheckbox.checked = true;
+                                                }
+                                            });
+                                        } else {
+                                            // Preencher outros campos
+                                            inputElement.value = formData[key];
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            alert("Erro ao obter dados do perfil");
+                            console.error(data.error);
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao obter dados do perfil");
+                        console.error(error);
+                    });
+                }
+            }
+
+            verificaModoEdicao();
+
+            function carregarEmpresas() {
+                fetch("http://matrixprovedor.net:9153/empresas/listar") // Substitua pela rota correta para obter todas as empresas
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectEmpresa = document.getElementById("empresa");
+                        selectEmpresa.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione uma empresa";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectEmpresa.appendChild(optionVazio);
+                        
+                        // Preenche o select com as empresas
+                        data.forEach(empresa => {
+                            const option = document.createElement("option");
+                            option.value = empresa.id;
+                            option.textContent = empresa.nome;
+                            selectEmpresa.appendChild(option);
+                        });
+                    } else {
+                        alert("Erro ao carregar empresas");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar empresas");
+                    console.error(error);
+                });
+            }
+
+            // Chama a função para carregar as empresas ao carregar a página
+            carregarEmpresas();
+
+            document.getElementById("perfilForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                const formObject = {};
+
+                // Converte os dados do formulário em um objeto JavaScript
+                formData.forEach((value, key) => {
+                    // Se o campo for parte dos menus, adicione-o ao array de menus
+                    if (key === "menus[]") {
+                        if (!formObject.menus) {
+                            formObject.menus = []; // Inicializa o array se ainda não existir
+                        }
+                        formObject.menus.push(value);
+                    } else {
+                        formObject[key] = value;
+                    }
+                });
+
+                // Converte o objeto em JSON
+                const formDataJSON = JSON.stringify(formObject);
+
+                // Exibe o JSON no console (você pode enviar isso para o servidor)
+                console.log(formDataJSON);
+
+                // Substitua "/perfil/cadastrar" pela rota correta para cadastrar o perfil no seu servidor
+                fetch("http://matrixprovedor.net:9153/perfil/salvar", {
+                    method: "POST", // Método HTTP para enviar dados
+                    headers: {
+                        "Content-Type": "application/json" // Tipo de conteúdo JSON
+                    },
+                    body: formDataJSON // Dados do formulário em JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Perfil salvo com sucesso");
+                        // Redireciona ou faz qualquer ação necessária após o cadastro bem-sucedido
+                    } else {
+                        alert("Erro ao salvar perfil");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao enviar os dados");
+                    console.error(error);
+                });
+            });
+        });
+    </script>
+
+    <title>Cadastro de Perfil</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between navbar-light bg-light">
+        <ul class="navbar-nav ms-5">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard.html">
+                    <i class="bi bi-house-fill"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-buildings-fill"></i>
+                    Empresas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="empresasDropdown">
+                    <a class="dropdown-item" href="/empresa.html">Cadastrar</a>
+                    <a class="dropdown-item" href="/empresas.html">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-people-fill"></i>
+                    Usuários
+                </a>
+                <div class="dropdown-menu" aria-labelledby="usuariosDropdown">
+                    <a class="dropdown-item" href="/usuario.html">Cadastrar</a>
+                    <a class="dropdown-item" href="/usuarios.html">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="perfisDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-badge-fill"></i>
+                    Perfis
+                </a>
+                <div class="dropdown-menu" aria-labelledby="perfisDropdown">
+                    <a class="dropdown-item" href="/perfil.html">Cadastrar</a>
+                    <a class="dropdown-item" href="/perfis.html">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="setoresDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-file-spreadsheet-fill"></i>
+                    Setores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="setoresDropdown">
+                    <a class="dropdown-item" href="/setor.html">Cadastrar</a>
+                    <a class="dropdown-item" href="/setores.html">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="sensoresDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-thermometer-half"></i>
+                    Sensores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="sensoresDropdown">
+                    <a class="dropdown-item" href="/sensor.html">Cadastrar</a>
+                    <a class="dropdown-item" href="/sensores.html">Listar</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-item dropdown p-2 me-5">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-fill"></i>
+                Usuário
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">Editar</a>
+                <a class="dropdown-item" href="#">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>Cadastrar Novo Perfil</h2>
+    </div>
+    
+    <div class="container">
+        <form id="perfilForm">
+            <input type="hidden" id="id" name="id">
+            <div class="form-group">
+                <label for="nome">Nome do Perfil:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa:</label>
+                <select class="form-select form-control" id="empresa" name="empresa" required>
+                    <!-- Options de empresas serão preenchidos dinamicamente pela função JavaScript -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Lista de Menus:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menu1" name="menus[]" value="1">
+                    <label class="form-check-label" for="menu1">
+                        Empresas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menu2" name="menus[]" value="2">
+                    <label class="form-check-label" for="menu2">
+                        Usuarios
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menu3" name="menus[]" value="3">
+                    <label class="form-check-label" for="menu3">
+                        Perfis
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menu4" name="menus[]" value="4">
+                    <label class="form-check-label" for="menu4">
+                        Setores
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="menu5" name="menus[]" value="5">
+                    <label class="form-check-label" for="menu5">
+                        Sensores
+                    </label>
+                </div>
+            </div>
+            <br>
+            <button id="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

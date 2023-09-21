@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Gauge.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/dist/justgage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.15.0/d3.min.js"></script>
+
+    <!-- navbar -->
+    <script type="text/javascript" src="./navbar.js"></script>
+    <script>
+        var chartTemperatura = null;
+        var chartLinhas = null;
+
+        function converterJson(jsonData) {
+            const result = [];
+            const idSet = new Set();
+
+            // Primeiro, obtenha todos os IDs únicos presentes no JSON
+            jsonData.forEach(item => {
+                idSet.add(item.id);
+            });
+
+            // Para cada ID único, crie um objeto com a lista de temperaturas e o nome correspondente
+            idSet.forEach(id => {
+                const filteredItems = jsonData.filter(item => item.id === id);
+                const nome = filteredItems.length > 0 ? filteredItems[0].nome : null;
+
+                const temperaturaList = filteredItems.map(item => item.temperatura);
+
+                result.push({ id, nome, temperaturas: temperaturaList.reverse() });
+            });
+
+            return result;
+        }
+
+        function carregarEmpresas() {
+            fetch("http://matrixprovedor.net:9153/empresas/listar")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectEmpresa = document.getElementById("empresaFiltro");
+                        selectEmpresa.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione uma empresa";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectEmpresa.appendChild(optionVazio);
+
+                        // Preenche o select com as empresas
+                        data.forEach(empresa => {
+                            const option = document.createElement("option");
+                            option.value = empresa.id;
+                            option.textContent = empresa.nome;
+                            selectEmpresa.appendChild(option);
+                        });
+                    } else {
+                        alert("Erro ao carregar empresas");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar empresas");
+                    console.error(error);
+                });
+        }
+
+        // Função para carregar os setores com base na empresa selecionada
+        function carregarSetores(idEmpresa) {
+            // Substitua "/setores/obterPorEmpresa" pela rota correta para obter os setores da empresa
+            fetch(`http://matrixprovedor.net:9153/setor/obterPorEmpresa?idEmpresa=${idEmpresa}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectSetor = document.getElementById("setorFiltro");
+                        selectSetor.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        const optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione um setor";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectSetor.appendChild(optionVazio);
+
+                        // Preenche o select com os setores da empresa
+                        data.forEach(setor => {
+                            const option = document.createElement("option");
+                            option.value = setor.id;
+                            option.textContent = setor.nome;
+                            selectSetor.appendChild(option);
+                        });
+                    } else {
+                        alert("Erro ao carregar setores");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar setores");
+                    console.error(error);
+                });
+        }
+
+        function listarSetoresAndSensores(empresa) {
+            carregarSetores(empresa);
+            obterSensoresByEmpresa(empresa);
+        }
+
+        function obterSensoresByEmpresa(empresa) {
+            fetch(`http://matrixprovedor.net:9153/sensores/listarSensoresPorEmpresa?idEmpresa=${empresa}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectSensor = document.getElementById("sensor");
+                        selectSensor.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        const optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione um sensor";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectSensor.appendChild(optionVazio);
+
+                        data.forEach(sensor => {
+                            const option = document.createElement("option");
+                            option.value = sensor.id;
+                            option.textContent = sensor.nome;
+                            selectSensor.appendChild(option);
+                        });
+
+                    } else {
+                        alert("Erro ao carregar sensores");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar sensores");
+                    console.error(error);
+                });
+        }
+
+        function listarSensores(setor) {
+            fetch(`http://matrixprovedor.net:9153/sensores/listarSensoresPorSetor?idSetor=${setor}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        const selectSensor = document.getElementById("sensor");
+                        selectSensor.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        const optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione um sensor";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectSensor.appendChild(optionVazio);
+
+                        data.forEach(sensor => {
+                            const option = document.createElement("option");
+                            option.value = sensor.id;
+                            option.textContent = sensor.nome;
+                            selectSensor.appendChild(option);
+                        });
+
+                    } else {
+                        alert("Erro ao carregar sensores");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar sensores");
+                    console.error(error);
+                });
+        }
+
+        function obterSensores() {
+                // Substitua "/sensor/getSensores" pela rota correta para obter os setores da empresa
+                fetch('http://matrixprovedor.net:9153/setor/obter?empresa=36')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const selectSetor = document.getElementById("sensor");
+                        selectSetor.innerHTML = ""; // Limpa o select
+
+                        // Opção vazia
+                        const optionVazio = document.createElement("option");
+                        optionVazio.value = "";
+                        optionVazio.textContent = "Selecione um snsor";
+                        optionVazio.hidden = true;
+                        optionVazio.selected = true;
+                        selectSetor.appendChild(optionVazio);
+
+                        data.success.forEach(setor => {
+                            const option = document.createElement("option");
+                            option.value = setor.id;
+                            option.textContent = setor.nome;
+                            selectSetor.appendChild(option);
+                        });
+                    } else {
+                        alert("Erro ao carregar setores");
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("Erro ao carregar setores");
+                    console.error(error);
+                });
+            }
+
+        obterAlertas = function() {
+            fetch('http://matrixprovedor.net:9153/sensor/alertas')
+                .then(response => response.json())
+                .then(sensorsData => {                    
+                    document.getElementById('geral').innerHTML = sensorsData.geral +'/'+ sensorsData.total
+                    document.getElementById('criticos').innerHTML = sensorsData.criticos +'/'+ sensorsData.total
+                    document.getElementById('alerta').innerHTML = sensorsData.alerta +'/'+ sensorsData.total
+                    document.getElementById('normal').innerHTML = sensorsData.normal +'/'+ sensorsData.total
+                })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+        obterDadosGraficoLinhas = function(id) {
+            if (id == undefined) {
+                alert('Selecione uma empresa e/ou setor para realizar a pesquisa');
+                return;
+            }
+            fetch('http://matrixprovedor.net:9153/sensores/ultimasMedicoes?'+id)
+                .then(response => response.json())
+                .then(sensorsData => {
+                    var sensorColors = converterJson(sensorsData).map(function(sensor, index) {
+                    var color = "rgba(" + Math.floor(Math.random() * 256) + "," +
+                                        Math.floor(Math.random() * 256) + "," +
+                                        Math.floor(Math.random() * 256) + ",0.2)";
+                    var strokeColor = "rgba(" + Math.floor(Math.random() * 256) + "," +
+                                                Math.floor(Math.random() * 256) + "," +
+                                                Math.floor(Math.random() * 256) + ",1)";
+                    var pointColor = strokeColor;
+                    var pointStrokeColor = "#fff";
+                    var pointHighlightFill = "#fff";
+                    var pointHighlightStroke = strokeColor;
+
+                    return {
+                        label: sensor.nome,
+                        fillColor: color,
+                        strokeColor: strokeColor,
+                        pointColor: pointColor,
+                        pointStrokeColor: pointStrokeColor,
+                        pointHighlightFill: pointHighlightFill,
+                        pointHighlightStroke: pointHighlightStroke,
+                        data: sensor.temperaturas,
+                        tension: 0.2
+                    };
+                    });
+
+                    var ctx = document.getElementById("myChart").getContext("2d");
+                    if (chartLinhas) {
+                        chartLinhas.clear();
+                        chartLinhas.destroy()
+                    }
+
+                    var data = {
+                        //as labels são as ultimas 10 temperaturas registradas
+                        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+                        datasets: sensorColors
+                    };
+
+                    var myNewChart = new Chart(ctx, {
+                        type: "line",
+                        data: data
+                    });
+                    chartLinhas = myNewChart;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+        obterDadosGraficoSensor = function(id) {
+            fetch('http://matrixprovedor.net:9153/sensores/ultimaMedicao?id='+id)
+                .then(response => response.json())
+                .then(sensorData => {
+                    const temperaturaAtual = sensorData[0].temperatura;
+                    const temperaturaMinima = sensorData[0].tempMin;
+                    const temperaturaMaxima = sensorData[0].tempMax;
+                    const alerta1 = sensorData[0].alertaMin;
+                    const alerta2 = sensorData[0].alertaMax;
+
+                    // Cor do gráfico
+                    let corGrafico = 'green';
+
+                    // Verificar alertas
+                    if (temperaturaAtual >= alerta2) {
+                        corGrafico = 'red';
+                    } else if (temperaturaAtual >= alerta1) {
+                        corGrafico = 'orange';
+                    }
+
+                    // Configuração do gráfico
+                    const ctx = document.getElementById('temperatureChart').getContext('2d');
+                    if (chartTemperatura) {
+                        chartTemperatura.clear();
+                        chartTemperatura.destroy()
+                    }
+
+                    const chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Temperatura Atual'],
+                            datasets: [{
+                                label: 'Temperatura (°C)',
+                                data: [temperaturaAtual],
+                                backgroundColor: corGrafico,
+                                borderColor: corGrafico,
+                                borderWidth: 1
+                            }],
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    min: temperaturaMinima, // Define a marcação mínima
+                                    max: temperaturaMaxima, // Define a marcação máxima
+                                    grid: {
+                                        drawBorder: false,
+                                        borderDash: [5, 5],
+                                        color: ctx => {
+                                            if (ctx.tick.value === alerta1) {
+                                                return 'orange'; // Cor da linha de alerta 1
+                                            } else if (ctx.tick.value === alerta2) {
+                                                return 'red'; // Cor da linha de alerta 2
+                                            } else {
+                                                return 'rgba(0, 0, 0, 0.1)'; // Cor das outras linhas de grade
+                                            }
+                                        },
+                                    },
+                                }
+                            }
+                        }
+                    });
+                    chartTemperatura = chart;
+                })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+
+        getId = function() {
+            if (document.getElementById('setorFiltro').value != '') {
+                return "idSetor="+ document.getElementById('setorFiltro').value;
+            } else if (document.getElementById('empresaFiltro').value != '') {
+                return "idEmpresa="+ document.getElementById('empresaFiltro').value;
+            } else {
+                return undefined;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            carregarEmpresas();
+            //obterSensores(); // descomentar essa linha
+            //obterDadosGraficoLinhas(); //descomentar essa linha
+            //obterDadosGraficoSensor(); //descomentar essa linha
+            
+            //exemplos (pode apagar esse código na versão final e deixar apenas a chamada da função acima, esse exemplo serve apenas para mostrar os graficos funcionando)
+            var sensorsData = [
+                {
+                    name: "Sensor 1",
+                    temperatures: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }
+            ];
+
+            // Gere as propriedades de cor dinamicamente para cada sensor
+            var sensorColors = sensorsData.map(function(sensor, index) {
+            var color = "rgba(" + Math.floor(Math.random() * 256) + "," +
+                                Math.floor(Math.random() * 256) + "," +
+                                Math.floor(Math.random() * 256) + ",0.2)";
+            var strokeColor = "rgba(" + Math.floor(Math.random() * 256) + "," +
+                                        Math.floor(Math.random() * 256) + "," +
+                                        Math.floor(Math.random() * 256) + ",1)";
+            var pointColor = strokeColor;
+            var pointStrokeColor = "#fff";
+            var pointHighlightFill = "#fff";
+            var pointHighlightStroke = strokeColor;
+
+            return {
+                label: sensor.name,
+                fillColor: color,
+                strokeColor: strokeColor,
+                pointColor: pointColor,
+                pointStrokeColor: pointStrokeColor,
+                pointHighlightFill: pointHighlightFill,
+                pointHighlightStroke: pointHighlightStroke,
+                data: sensor.temperatures,
+                tension: 0.2
+            };
+            });
+
+            var ctx = document.getElementById("myChart").getContext("2d");
+
+            var data = {
+                labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+                datasets: sensorColors
+            };
+
+            var myNewChart = new Chart(ctx, {
+                type: "line",
+                data: data
+            });
+            chartLinhas = myNewChart
+
+            obterDadosGraficoSensorTeste = function() {
+            const temperaturaAtual = 0;
+            const temperaturaMinima = 0;
+            const temperaturaMaxima = 0;
+            const alerta1 = 0;
+            const alerta2 = 0;
+
+            // Cor do gráfico
+            let corGrafico = 'green';
+
+            // Verificar alertas
+            if (temperaturaAtual >= alerta2) {
+                corGrafico = 'red';
+            } else if (temperaturaAtual >= alerta1) {
+                corGrafico = 'orange';
+            }
+
+            // Configuração do gráfico
+            const ctx = document.getElementById('temperatureChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Temperatura Atual'],
+                    datasets: [{
+                        label: 'Temperatura (°C)',
+                        data: [temperaturaAtual],
+                        backgroundColor: corGrafico,
+                        borderColor: corGrafico,
+                        borderWidth: 1
+                    }],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            min: temperaturaMinima, // Define a marcação mínima
+                            max: temperaturaMaxima, // Define a marcação máxima
+                            grid: {
+                                drawBorder: false,
+                                borderDash: [5, 5],
+                                color: ctx => {
+                                    if (ctx.tick.value === alerta1) {
+                                        return 'orange'; // Cor da linha de alerta 1
+                                    } else if (ctx.tick.value === alerta2) {
+                                        return 'red'; // Cor da linha de alerta 2
+                                    } else {
+                                        return 'rgba(0, 0, 0, 0.1)'; // Cor das outras linhas de grade
+                                    }
+                                },
+                            },
+                        }
+                    }
+                }
+            });
+            chartTemperatura = chart;
+        }
+        obterDadosGraficoSensorTeste();
+        }); 
+
+        function recarregarPaginaAcada5Minutos() {
+            // Define o intervalo em milissegundos (5 minutos = 300.000 milissegundos)
+            const intervalo = 300000;
+
+            setInterval(function() {
+                location.reload();
+            }, intervalo);
+        }
+        //recarregarPaginaACada5Minutos();
+
+    </script>
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <div id="navbar"></div>
+
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+    
+    <h3>Overview</h3>
+    <div class="d-flex justify-content-around">
+
+        <div class="w-25 card m-1 ms-3">
+            <h5 class="card-header"><i class="bi bi-exclamation-square" style="color: blue;"></i> Visão Geral</h5>
+            <div class="card-body bg-primary bg-opacity-50">
+                <p class="card-text">Total Instalado</p>
+                <p class="card-text" id="geral">18/48</p>
+            </div>
+        </div>
+
+          <div class="w-25 card m-1">
+            <h5 class="card-header"><i class="bi bi-x-octagon" style="color: red;"></i> Alarmes Criticos</h5>
+            <div class="card-body bg-danger bg-opacity-50">
+                <p class="card-text">Total Critico</p>
+                <p class="card-text" id="criticos">1/18</p>
+            </div>
+        </div>
+
+        <div class="w-25 card m-1">
+            <h5 class="card-header"><i class="bi bi-exclamation-triangle" style="color: orange;"></i> Alerta</h5>
+            <div class="card-body bg-warning bg-opacity-50">
+                <p class="card-text">Total Alerta</p>
+                <p class="card-text" id="alerta">5/18</p>
+            </div>
+        </div>
+
+        <div class="w-25 card m-1 me-3">
+            <h5 class="card-header"><i class="bi bi-check-circle" style="color: green;"></i> Operação Normal</h5>
+            <div class="card-body bg-success bg-opacity-50">   
+                <p class="card-text">Total Normal</p>           
+                <p class="card-text" id="normal">11/18</p>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header"><i class="bi bi-funnel"></i> Filtros De Pesquisa</h5>
+            <div class="card-body">
+                <div id="formFilter" class="row align-items-center">
+                    <div class="col">
+                        <label for="empresaFiltro">Empresa:</label>
+                        <select class="form-select form-control" name="empresaFiltro" id="empresaFiltro"
+                            onchange="listarSetoresAndSensores(this.value)">
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="setorFiltro">Setor:</label>
+                        <select class="form-select form-control" name="setorFiltro" id="setorFiltro"
+                            onchange="listarSensores(this.value)">
+                        </select>
+                    </div>
+
+                    <div class="col mt-3">
+                        <button class="btn btn-primary" onclick="obterDadosGraficoLinhas(getId())">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="d-flex justify-content-around">
+        <div class="card">
+            <h5 class="card-header"><i class="bi bi-graph-down"></i> Grafico Sensores</h5>
+            <div class="card-body">
+                <canvas id="myChart" width="1200" height="600"></canvas>
+            </div>
+        </div>
+
+          <div class="card">
+            <h5 class="card-header"><i class="bi bi-thermometer-snow"></i> Temperatura Sensor</h5>
+            <div class="container">
+                <label for="sensor">Sensor</label>
+                <select class="form-select form-control" id="sensor" onchange="obterDadosGraficoSensor(this.value)">
+                    <!-- montado dinamicamente -->
+                </select>
+            </div>
+            <div class="card-body">
+                <canvas id="temperatureChart" width="300" height="500"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
