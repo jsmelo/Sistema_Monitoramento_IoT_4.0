@@ -1,7 +1,7 @@
 # Sistema_Monitoramento_IoT_4.0
 
 ## Integrantes
-[Jonas Ferreira](https://github.com/) / [Jurandir Melo](https://github.com/jsmelo) / [Rafael](https://github.com/)
+[Jonas Ferreira](https://github.com/jonasleal) / [Jurandir Melo](https://github.com/jsmelo) / [Rafael Cavalcanti](https://github.com/mrafaelcavalcanti)
 
 ## Sobre o Projeto
 Projeto desenvolvido para a coleta, armazenamento e tratamento de dados dos mais diversos tipos: Temperatura, Gases Tóxicos, Humidade, Pressão, Vazão, Ph, Peso. O sistema foi implementado da seguinte forma: FrontEnd (Html, JavaScrit, e Bootstrap), BackEnd (Node-Red), Banco de Dados (Maria DB), Hardware para a coleta de dados (ESP8266), Aplicação ESP8266 desenvolvida em C++, Servidor Web (Debian Server). O projeto em si faz parte das atividades de verificação de aprendizagem da disciplina Projeto de Desenvolvimento da UFAPE (Universidade Federal do Agreste de Pernambuco), tendo como Docente o [Prof. Dr. Rodrigo Gusmão de Carvalho Rocha](https://github.com/), referente ao período letivo de 2022.2.
