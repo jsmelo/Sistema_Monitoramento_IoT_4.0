@@ -13,9 +13,8 @@ O Usuário Gerente e responsável por cadastrar, consultar, modificar e remover 
 O Usuário Supervisor e responsável por cadastrar, consultar, modificar e remover o Usuário (Usuário) e consultar Empresas, Setores e Sensores bem como vizualizar o Dashboard.
 O Usuário Usuário e responsável por consultar Sensores bem como vizualizar o Dashboard.
 # Artefatos:
-### [Estudo de Viabilidade]([https://www.javascript.com](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Material%20Adicional/EstudodeViabilidade.pdf)
+### [Estudo de Viabilidade](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Material%20Adicional/EstudodeViabilidade.pdf)
 ### [MER](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Diagrama%20de%20Classes/Diagrama%20de%20Classes.jpeg)
-### [Estudo de Viabilidade]([https://www.javascript.com](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Material%20Adicional/EstudodeViabilidade.pdf))
 
 ## Tecnologias Utilizadas:
 ### HTML
