@@ -15,6 +15,8 @@ O Usuário Usuário e responsável por consultar Sensores bem como vizualizar o 
 # Artefatos:
 ### [Estudo de Viabilidade](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Material%20Adicional/EstudodeViabilidade.pdf)
 ### [MER](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Diagrama%20de%20Classes/Diagrama%20de%20Classes.jpeg)
+### [Protótipo](https://www.figma.com/file/1UZF64ZKqeXfndqIP9vi8i/Project-Management-Dashboard---FREE-(Community)?type=design&node-id=0%3A1&mode=design&t=NMA34PAUckQxzE0S-1)
+### [Plano de Projeto](https://github.com/jsmelo/Sistema_Monitoramento_IoT_4.0/blob/main/Material%20Adicional/PlanodeProjeto-Projetao.pdf)
 
 ## Tecnologias Utilizadas:
 ### HTML
@@ -40,3 +42,8 @@ O Usuário Usuário e responsável por consultar Sensores bem como vizualizar o 
 Em teste...
 ## Site do Sistema
 [Clique aqui](http://http://matrixprovedor.net:9152/login.html)
+
+## Login do Sistema
+### Administrador Master
+### Email: Monitortrmp@gmail.com
+### Senha: 123456
