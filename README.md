@@ -42,8 +42,6 @@ O Usuário Usuário e responsável por consultar Sensores bem como vizualizar o 
 Em teste...
 ## Site do Sistema
 [Clique aqui](http://http://matrixprovedor.net:9152/login.html)
-
-## Login do Sistema
-### Administrador Master
+### Dados para acesso
 ### Email: Monitortrmp@gmail.com
 ### Senha: 123456
