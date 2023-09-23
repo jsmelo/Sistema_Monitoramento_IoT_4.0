@@ -58,16 +58,26 @@
                         optionVazio.value = "";
                         optionVazio.textContent = "Selecione uma empresa";
                         optionVazio.hidden = true;
-                        optionVazio.selected = true;
+                        if (!isAdminMaster()) {
+                            optionVazio.selected = true;
+                        }
                         selectEmpresa.appendChild(optionVazio);
 
                         // Preenche o select com as empresas
                         data.forEach(empresa => {
                             const option = document.createElement("option");
                             option.value = empresa.id;
+                            if (isAdminMaster() && getUsuarioLogado().empresa == empresa.id) {
+                                option.selected = true;
+                            }
                             option.textContent = empresa.nome;
                             selectEmpresa.appendChild(option);
                         });
+
+                        if (!isAdminMaster()) {
+                            document.getElementById("empresaDiv").style.display = "none";
+                            listarSetoresAndSensores(getUsuarioLogado().empresa);
+                        }
                     } else {
                         alert("Erro ao carregar empresas");
                         console.error(data.error);
@@ -546,7 +556,7 @@
             <h5 class="card-header"><i class="bi bi-funnel"></i> Filtros De Pesquisa</h5>
             <div class="card-body">
                 <div id="formFilter" class="row align-items-center">
-                    <div class="col">
+                    <div class="col" id="empresaDiv">
                         <label for="empresaFiltro">Empresa:</label>
                         <select class="form-select form-control" name="empresaFiltro" id="empresaFiltro"
                             onchange="listarSetoresAndSensores(this.value)">
