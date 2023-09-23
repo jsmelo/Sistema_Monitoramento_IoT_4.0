@@ -42,7 +42,7 @@ O Usuário Usuário e responsável por consultar Sensores bem como vizualizar o 
 ## Status do Projeto
 Em teste...
 ## Site do Sistema
-[Clique aqui](http://http://matrixprovedor.net:9152/login.html)
+[Clique aqui](http://matrixprovedor.net:9152/login.html)
 ### Dados para acesso
 ### Email: monitortemp@gmail.com
 ### Senha: 123456
