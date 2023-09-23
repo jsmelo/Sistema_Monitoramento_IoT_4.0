@@ -68,7 +68,7 @@
           if (confirm(confirmationMessage)) {
             fetch(`http://matrixprovedor.net:9153/empresas/deletar?id=${empresaId}`)
               .then(response => {
-                if (response.success) {
+                if (response.status == 200) {
                   location.reload();
                 } else {
                   console.error("Error deleting empresa:", response.status);
