@@ -187,7 +187,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ulElement.appendChild(createMenuItem('bi bi-house-fill', 'Home', '/dashboard.html'));
 
     // Adiciona os itens de menu à <ul> element
-    ulElement.appendChild(empresasDropdown);
+    if (isAdminMaster()) {
+        ulElement.appendChild(empresasDropdown);
+    }
     ulElement.appendChild(usuariosDropdown);
     ulElement.appendChild(setoresDropdown);
     ulElement.appendChild(sensoresDropdown);
@@ -208,4 +210,12 @@ document.addEventListener("DOMContentLoaded", function () {
 //checa permissao de acesso a tela
 permissaoAcesso();
 
-//para acessar as paginas sem login: comentar a linha 209 e descomentar a linha 53
+//para acessar as paginas sem login: comentar a linha 211 e descomentar a linha 53
+
+isAdminMaster = function() {
+    if (getUsuarioLogado().tipoUsuario == "AdminMaster" || getUsuarioLogado().tipoUsuario == 4) {
+        return true;
+    } else {
+        return false;
+    }
+}
