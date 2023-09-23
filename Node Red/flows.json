@@ -347,7 +347,7 @@
         "type": "function",
         "z": "a9bfa6605d0b661f",
         "name": "SQL SELECT Usuário EMAIL",
-        "func": "var usuario = msg.usuario;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
+        "func": "var usuario = msg.usuario;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -626,7 +626,7 @@
         "type": "debug",
         "z": "359d5fe091bf41d6",
         "name": "payload",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1035,7 +1035,8 @@
         "y": 400,
         "wires": [
             [
-                "58b2519e52a3034e"
+                "58b2519e52a3034e",
+                "345e4b1a689a637e"
             ]
         ]
     },
@@ -1055,7 +1056,8 @@
         "wires": [
             [
                 "361e4baad4f2a910",
-                "9b29b97d203c54ae"
+                "9b29b97d203c54ae",
+                "345e4b1a689a637e"
             ]
         ]
     },
@@ -1069,8 +1071,7 @@
         "y": 500,
         "wires": [
             [
-                "1a86bd6b73c7c184",
-                "aa9d3142af65d00d"
+                "1a86bd6b73c7c184"
             ]
         ]
     },
@@ -1099,7 +1100,8 @@
                 "02670ea02abe6d7c"
             ],
             [
-                "160d798c55c4e4c5"
+                "160d798c55c4e4c5",
+                "e931635023d34c11"
             ]
         ]
     },
@@ -1108,7 +1110,7 @@
         "type": "function",
         "z": "e2df45bdd6ea5367",
         "name": "SQL INSERT Empresa",
-        "func": "var empresa = msg.payload;\nmsg.topic = \"INSERT INTO `monitorTemp`.`Empresa` (`nome`, `cnpj`, `telefone`, `email`)\" + \n            \" VALUES ('\" + empresa.nome + \"', '\"+empresa.cnpj+\"', '\"+empresa.telefone+\"', '\"+empresa.email+\"');\";\n\nreturn msg;",
+        "func": "var empresa = msg.payload;\nmsg.topic = \n\"INSERT INTO `monitorTemp`.`Empresa` (`nome`, `cnpj`, `telefone`, `email`)\" + \n\" VALUES ('\" + empresa.nome + \"', '\"+empresa.cnpj+\"', '\"+empresa.telefone+\"', '\"+empresa.email+\"');\\n\"+\n\n\"INSERT INTO `monitorTemp`.`Endereco` (`empresa_id`,`cep`,`cidade`,`estado`,`rua`,`numero`,`complemento`)\"+\n\" VALUES ((SELECT id FROM `monitorTemp`.`Empresa` WHERE cnpj = '\"+empresa.cnpj+\"' ), '\" + empresa.endereco.cep + \"', '\" + empresa.endereco.cidade + \"', '\" + empresa.endereco.estado + \"', '\" + empresa.endereco.rua + \"', '\" + empresa.endereco.numero + \"', '\" + empresa.endereco.complemento + \"');\\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1118,7 +1120,8 @@
         "y": 420,
         "wires": [
             [
-                "6e02335a6b2c870f"
+                "6e02335a6b2c870f",
+                "345e4b1a689a637e"
             ]
         ]
     },
@@ -1213,11 +1216,10 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 90,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
-                "d1d28dd8d5966863",
-                "345e4b1a689a637e"
+                "d1d28dd8d5966863"
             ]
         ]
     },
@@ -1233,7 +1235,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "30f74c20f35a6fd4",
@@ -1246,18 +1248,17 @@
         "type": "function",
         "z": "e2df45bdd6ea5367",
         "name": "SQL SELECT Empresa ID",
-        "func": "var empresa = msg.payload;\nmsg.topic = \"SELECT * FROM monitorTemp.Empresa WHERE (`id` = '\" + empresa.id + \"');\"\n\nreturn msg;",
+        "func": "var empresa = msg.payload;\n\nmsg.topic = `\n    SELECT\n        JSON_OBJECT(\n            'id', Empresa.id,\n            'nome', Empresa.nome,\n            'cnpj', Empresa.cnpj,\n            'telefone', Empresa.telefone,\n            'email', Empresa.email,\n            'endereco', JSON_OBJECT(\n                'cep', Endereco.cep,\n                'cidade', Endereco.cidade,\n                'estado', Endereco.estado,\n                'rua', Endereco.rua,\n                'numero', Endereco.numero,\n                'complemento', Endereco.complemento\n            )\n        ) AS empresa_json\n    FROM\n        monitorTemp.Empresa\n    LEFT JOIN\n        monitorTemp.Endereco ON Empresa.id = Endereco.empresa_id\n    WHERE\n        Empresa.id = `+empresa.id;\n\n//msg.topic = \"select * from monitorTemp.Endereco;\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 790,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
-                "6e02335a6b2c870f",
-                "2ef59333a39a7651"
+                "6e02335a6b2c870f"
             ]
         ]
     },
@@ -1276,7 +1277,8 @@
         "y": 500,
         "wires": [
             [
-                "c5b4c4f9e0bca5b1"
+                "c5b4c4f9e0bca5b1",
+                "345e4b1a689a637e"
             ]
         ]
     },
@@ -1290,7 +1292,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 100,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "42070db7fce40fa7"
@@ -1309,7 +1311,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "ed130e8b5a1f7a11",
@@ -1329,7 +1331,7 @@
         "finalize": "",
         "libs": [],
         "x": 800,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "6e02335a6b2c870f"
@@ -1354,7 +1356,7 @@
         "repair": false,
         "outputs": 1,
         "x": 550,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "3f9004ba2feb2641"
@@ -1380,7 +1382,7 @@
         "type": "function",
         "z": "e2df45bdd6ea5367",
         "name": "SQL UPDATE Empresa",
-        "func": "var empresa = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Empresa` SET `nome` = '\" + empresa.nome +\"', `cnpj` = '\" + empresa.cnpj +\"', `telefone` = '\" + empresa.telefone +\n            \"', `email` = '\" + empresa.email +\"' WHERE (`id` = '\"+empresa.id+\"');\";\n\nreturn msg;",
+        "func": "var empresa = msg.payload;\n\nmsg.topic = \"UPDATE `monitorTemp`.`Empresa` SET `nome` = '\" + empresa.nome +\"', `cnpj` = '\" + empresa.cnpj +\"', `telefone` = '\" + empresa.telefone +\n            \"', `email` = '\" + empresa.email +\"' WHERE (`id` = '\"+empresa.id+\"'); \\n\"+\n\n`UPDATE monitorTemp.Endereco\n    SET\n        cep = '${empresa.endereco.cep}',\n        cidade = '${empresa.endereco.cidade}',\n        estado = '${empresa.endereco.estado}',\n        rua = '${empresa.endereco.rua}',\n        numero = '${empresa.endereco.numero}',\n        complemento = '${empresa.endereco.complemento}'\n    WHERE\n        empresa_id = ${empresa.id};\n`;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1437,7 +1439,7 @@
         "repair": false,
         "outputs": 1,
         "x": 550,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "afebf66f6eaecc80"
@@ -1485,6 +1487,23 @@
         "x": 1710,
         "y": 400,
         "wires": []
+    },
+    {
+        "id": "e931635023d34c11",
+        "type": "function",
+        "z": "e2df45bdd6ea5367",
+        "name": "SQL INSERT Empresa",
+        "func": "var empresa = msg.payload;\nmsg.topic = \"INSERT INTO `monitorTemp`.`Endereco` (`cep`, `cidade`, `estado`, `rua`, `numero`, `complemento` , `empresa_id`)\" + \n    \" VALUES ('\" + empresa.cep + \"', '\" + empresa.cidade + \"', '\" + empresa.estado + \"', '\" + empresa.numero + \"', '\" + empresa.complemento + \"', '\" + empresa.id +\"');\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 460,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "561f6aef5ca8f837",
@@ -1693,7 +1712,7 @@
         "type": "function",
         "z": "0a41ebc60d5d5486",
         "name": "SQL SELECT Usuário ID",
-        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`id` = '\" + usuario.id + \"');\"\n\nreturn msg;",
+        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa' FROM monitorTemp.Usuario AS u WHERE (`id` = '\" + usuario.id + \"');\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2002,7 +2021,7 @@
         "type": "function",
         "z": "0a41ebc60d5d5486",
         "name": "SQL SELECT Usuário EMAIL",
-        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa', u.perfil_id AS 'perfil' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
+        "func": "var usuario = msg.payload;\n \nmsg.topic = \"SELECT u.id, u.nome, u.email, u.senha, CASE tipoUsuario WHEN 'Usuário' THEN 1 WHEN 'Supervisor' THEN 2 WHEN 'Gerente' THEN 3 WHEN 'AdminMaster' THEN 4 ELSE 0 END AS tipoUsuario , u.empresa_id AS 'empresa' FROM monitorTemp.Usuario AS u WHERE (`email` = '\" + usuario.email + \"');\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
