@@ -70,17 +70,25 @@
                         optionVazio.value = "";
                         optionVazio.textContent = "Selecione uma empresa";
                         optionVazio.hidden = true;
-                        optionVazio.selected = true;
+                        if (!isAdminMaster()) {
+                            optionVazio.selected = true;
+                        }
                         selectEmpresa.appendChild(optionVazio);
                         
                         // Preenche o select com as empresas
                         data.forEach(empresa => {
                             const option = document.createElement("option");
                             option.value = empresa.id;
+                            if (isAdminMaster() && getUsuarioLogado().empresa == empresa.id) {
+                                option.selected = true;
+                            }
                             option.textContent = empresa.nome;
                             selectEmpresa.appendChild(option);
                         });
 
+                        if (!isAdminMaster()) {
+                            document.getElementById("empresaDiv").style.display = "none";
+                        }
                         verificaModoEdicao();
                     } else {
                         alert("Erro ao carregar empresas");
@@ -173,6 +181,7 @@
                     if (data.success) {
                         alert("Usuario salvo com sucesso");
                         // Redireciona ou faz qualquer ação necessária após o cadastro bem-sucedido
+                        window.location.href = "usuarios.html"
                     } else {
                         alert("Erro ao salvar usuario");
                         console.error(data.error);
@@ -220,7 +229,7 @@
                     <option value="4">AdminMaster</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div id="empresaDiv" class="form-group">
                 <label for="empresa">Empresa:</label>
                 <select class="form-select form-control" id="empresa" name="empresa" required>
                     <!-- Opções de empresas serão preenchidas dinamicamente pela função JavaScript -->
