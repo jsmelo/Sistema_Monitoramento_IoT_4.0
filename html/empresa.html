@@ -37,13 +37,13 @@
                     .then(data => {
                         if (data.success) {
                             // Preencher o formulário com os dados obtidos
-                            const formData = data.success[0]; // Supondo que os dados retornados são um objeto JSON com os campos correspondentes aos campos do formulário
+                            const formData = JSON.parse(data.success[0].empresa_json); // Supondo que os dados retornados são um objeto JSON com os campos correspondentes aos campos do formulário
                             
                             for (const key in formData) {
                                 if (formData.hasOwnProperty(key)) {
                                     const inputElement = document.querySelector(`[name="${key}"]`);
-                                    if (inputElement) {
-                                        if (key === 'endereco') {
+                                    if (inputElement || key=='endereco') {
+                                        if (key == 'endereco') {
                                             // Preencher campos de endereço dentro do objeto 'endereco'
                                             const enderecoData = formData[key];
                                             for (const enderecoKey in enderecoData) {
@@ -117,7 +117,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.success) {
+                    if (data) {
                         alert("Empresa salva com sucesso");
                         window.location.href = "empresas.html"; // Redireciona em caso de sucesso
                     } else {
