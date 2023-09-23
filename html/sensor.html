@@ -13,6 +13,7 @@
     <script type="text/javascript" src="./navbar.js"></script>
 
     <script>
+        
         var idEmpresa = null;
         var idSetor = null;
         document.addEventListener("DOMContentLoaded", function() {
@@ -79,18 +80,26 @@
                         optionVazio.value = "";
                         optionVazio.textContent = "Selecione uma empresa";
                         optionVazio.hidden = true;
-                        optionVazio.selected = true;
+                        if (!isAdminMaster()) {
+                            optionVazio.selected = true;
+                        }
                         selectEmpresa.appendChild(optionVazio);
                         
                         // Preenche o select com as empresas
                         data.forEach(empresa => {
                             const option = document.createElement("option");
                             option.value = empresa.id;
+                            if (isAdminMaster() && getUsuarioLogado().empresa == empresa.id) {
+                                option.selected = true;
+                            }
                             option.textContent = empresa.nome;
                             selectEmpresa.appendChild(option);
                         });
 
                         verificaModoEdicao();
+                        if (!isAdminMaster()) {
+                            document.getElementById("empresaDiv").style.display = "none";
+                        }
                     } else {
                         alert("Erro ao carregar empresas");
                         console.error(data.error);
@@ -184,6 +193,7 @@
                     if (data.success) {
                         alert("Sensor salvo com sucesso");
                         // Redireciona ou faz qualquer ação necessária após o cadastro bem-sucedido
+                        window.location.href = "sensores.html"
                     } else {
                         alert("Erro ao salvar sensor");
                         console.error(data.error);
@@ -218,7 +228,7 @@
                 <label for="nome">MAC do Sensor:</label>
                 <input type="text" class="form-control" id="mac" name="mac" required>
             </div>
-            <div class="form-group">
+            <div id="empresaDiv" class="form-group">
                 <label for="empresa">Empresa:</label>
                 <select class="form-select form-control" id="empresa" name="empresa" required>
                     <!-- Options de empresas serão preenchidos dinamicamente pela função JavaScript -->
